@@ -1,0 +1,1008 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Homeworld Rise of Hiigara - Ship Classes">
+  <meta name="theme-color" content="#0A0A12">
+  
+  <title>Ship Classes | Homeworld Rise of Hiigara</title>
+  
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/ships.css">
+</head>
+<body>
+  <!-- Background -->
+  <div class="hw-bg"></div>
+  <div class="hw-stars"></div>
+  
+  <!-- Navigation -->
+  <nav class="hw-nav">
+    <div class="hw-nav-container">
+      <a href="index.html" class="hw-nav-logo">
+        <div class="hw-nav-logo-icon">⚔</div>
+        <span>Rise of Hiigara</span>
+      </a>
+      
+      <ul class="hw-nav-links">
+        <li><a href="index.html#home" class="hw-nav-link">Home</a></li>
+        <li><a href="index.html#features" class="hw-nav-link">Features</a></li>
+        <li><a href="index.html#gallery" class="hw-nav-link">Gallery</a></li>
+        <li><a href="index.html#download" class="hw-nav-link">Download</a></li>
+        <li><a href="index.html#community" class="hw-nav-link">Community</a></li>
+      </ul>
+      
+      <div class="hw-nav-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </nav>
+  
+  <!-- Ship Classes Header -->
+  <section class="hw-ship-header">
+    <div class="container">
+      <h1 class="hw-ship-title">Ship Classes</h1>
+      <p class="hw-ship-subtitle">Explore the complete fleet roster for each faction</p>
+    </div>
+  </section>
+  
+  <!-- Faction Tabs -->
+  <section class="hw-faction-tabs">
+    <div class="container">
+      <div class="hw-tabs">
+        <button class="hw-tab active" data-faction="kushan">
+          <span class="hw-tab-icon">🔷</span>
+          <span>Kushan</span>
+        </button>
+        <button class="hw-tab" data-faction="taiidan">
+          <span class="hw-tab-icon">🔶</span>
+          <span>Taiidan</span>
+        </button>
+        <button class="hw-tab" data-faction="somtaaw">
+          <span class="hw-tab-icon">⚙</span>
+          <span>Somtaaw</span>
+        </button>
+        <button class="hw-tab" data-faction="turanic">
+          <span class="hw-tab-icon">⚔</span>
+          <span>Turanic</span>
+        </button>
+        <button class="hw-tab" data-faction="ccr">
+          <span class="hw-tab-icon">🛡</span>
+          <span>CCR</span>
+        </button>
+        <a href="index.html" class="hw-tab hw-tab-placeholder">
+          <span>More to discover...</span>
+        </a>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Kushan Ship Tree -->
+  <section id="kushan" class="hw-ship-tree active">
+    <div class="hw-tree-wrapper">
+      <div class="hw-faction-header">
+        <div class="hw-faction-emblem kushan-emblem">🔷</div>
+        <div class="hw-faction-info">
+          <h2>Kushan Fleet</h2>
+          <p>The exiles returning to Hiigara. Their ships emphasize durability and balanced firepower.</p>
+        </div>
+      </div>
+      
+      <!-- Tree Container -->
+      <div class="hw-tree-container">
+        <!-- Fleet Bracket -->
+        <div class="hw-fleet-bracket">
+          <div class="hw-fleet-bracket-inner">
+            <span class="hw-fleet-name">KUSHAN</span>
+            <span class="hw-fleet-bracket-bottom"></span>
+          </div>
+        </div>
+        
+        <!-- Combat Row -->
+        <div class="hw-tree-row hw-tree-row-combat">
+          <!-- Fighters -->
+        <div class="hw-tree-section">
+          <div class="hw-tree-section-header">
+            <span class="hw-tree-section-icon hw-tree-section-icon--fighter"></span>
+            <h3 class="hw-tree-section-title">Fighters</h3>
+          </div>
+          <div class="hw-tree-ships">
+            <div class="hw-tree-ship-col">
+              <div class="hw-ship-card hw-ship-card" data-ship="interceptor">
+                <div class="hw-ship-image">
+                  <img src="assets/ships/kushan-interceptor.webp" alt="Kushan Interceptor" class="hw-ship-img" loading="lazy">
+                </div>
+                <div class="hw-ship-info">
+                  <h4 class="hw-ship-name">Interceptor</h4>
+                  <span class="hw-ship-class">Fighter</span>
+                </div>
+              </div>
+              <div class="hw-ship-card hw-ship-card" data-ship="scout">
+                <div class="hw-ship-image">
+                  <img src="assets/ships/kushan-scout.webp" alt="Kushan Scout" class="hw-ship-img" loading="lazy">
+                </div>
+                <div class="hw-ship-info">
+                  <h4 class="hw-ship-name">Scout</h4>
+                  <span class="hw-ship-class">Fighter</span>
+                </div>
+              </div>
+            </div>
+            <div class="hw-tree-ship-col">
+              <div class="hw-ship-card hw-ship-card--disabled" data-ship="bomber">
+                <div class="hw-ship-image">
+                  <img src="assets/ships/kushan-bomber.webp" alt="Kushan Bomber" class="hw-ship-img" loading="lazy">
+                </div>
+                <div class="hw-ship-info">
+                  <h4 class="hw-ship-name">Bomber</h4>
+                  <span class="hw-ship-class">Fighter</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Corvettes -->
+        <div class="hw-tree-section">
+          <div class="hw-tree-section-header">
+            <span class="hw-tree-section-icon hw-tree-section-icon--corvette"></span>
+            <h3 class="hw-tree-section-title">Corvettes</h3>
+          </div>
+          <div class="hw-tree-ships">
+            <div class="hw-tree-ship-col">
+              <div class="hw-ship-card hw-ship-card--disabled" data-ship="light-corvette">
+                <div class="hw-ship-image">
+                  <img src="assets/ships/kushan-light-corvette.webp" alt="Kushan Light Corvette" class="hw-ship-img" loading="lazy">
+                </div>
+                <div class="hw-ship-info">
+                  <h4 class="hw-ship-name">Light Corvette</h4>
+                  <span class="hw-ship-class">Corvette</span>
+                </div>
+              </div>
+              <div class="hw-ship-card hw-ship-card" data-ship="heavy-corvette">
+                <div class="hw-ship-image">
+                  <img src="assets/ships/kushan-heavy-corvette.webp" alt="Kushan Heavy Corvette" class="hw-ship-img" loading="lazy">
+                </div>
+                <div class="hw-ship-info">
+                  <h4 class="hw-ship-name">Heavy Corvette</h4>
+                  <span class="hw-ship-class">Corvette</span>
+                </div>
+              </div>
+            </div>
+            <div class="hw-tree-ship-col">
+              <div class="hw-ship-card hw-ship-card--disabled" data-ship="multigun-corvette">
+                <div class="hw-ship-image">
+                  <img src="assets/ships/kushan-multigun-corvette.webp" alt="Kushan Multi-Gun Corvette" class="hw-ship-img" loading="lazy">
+                </div>
+                <div class="hw-ship-info">
+                  <h4 class="hw-ship-name">Multi-Gun Corvette</h4>
+                  <span class="hw-ship-class">Corvette</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Frigates -->
+        <div class="hw-tree-section">
+          <div class="hw-tree-section-header">
+            <span class="hw-tree-section-icon hw-tree-section-icon--frigate"></span>
+            <h3 class="hw-tree-section-title">Frigates</h3>
+          </div>
+          <div class="hw-tree-ships">
+            <div class="hw-tree-ship-col">
+              <div class="hw-ship-card hw-ship-card--disabled" data-ship="ion-cannon-frigate">
+                <div class="hw-ship-image">
+                  <img src="assets/ships/kushan-ion-cannon-frigate.webp" alt="Kushan Ion Cannon Frigate" class="hw-ship-img" loading="lazy">
+                </div>
+                <div class="hw-ship-info">
+                  <h4 class="hw-ship-name">Ion Cannon</h4>
+                  <span class="hw-ship-class">Frigate</span>
+                </div>
+              </div>
+              <div class="hw-ship-card hw-ship-card" data-ship="assault-frigate">
+                <div class="hw-ship-image">
+                  <img src="assets/ships/kushan-assault-frigate.webp" alt="Kushan Assault Frigate" class="hw-ship-img" loading="lazy">
+                </div>
+                <div class="hw-ship-info">
+                  <h4 class="hw-ship-name">Assault Frigate</h4>
+                  <span class="hw-ship-class">Frigate</span>
+                </div>
+              </div>
+            </div>
+            <div class="hw-tree-ship-col">
+              <div class="hw-ship-card hw-ship-card--disabled" data-ship="support-frigate">
+                <div class="hw-ship-image">
+                  <img src="assets/ships/kushan-support-frigate.webp" alt="Kushan Support Frigate" class="hw-ship-img" loading="lazy">
+                </div>
+                <div class="hw-ship-info">
+                  <h4 class="hw-ship-name">Support Frigate</h4>
+                  <span class="hw-ship-class">Frigate</span>
+                </div>
+              </div>
+              <div class="hw-ship-card hw-ship-card--disabled" data-ship="drone-frigate">
+                <div class="hw-ship-image">
+                  <img src="assets/ships/kushan-drone-frigate.webp" alt="Kushan Drone Frigate" class="hw-ship-img" loading="lazy">
+                </div>
+                <div class="hw-ship-info">
+                  <h4 class="hw-ship-name">Drone Frigate</h4>
+                  <span class="hw-ship-class">Frigate</span>
+                  <span class="hw-ship-note">Not compatible yet with Freelancer mechanics</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Capital Ships -->
+        <div class="hw-tree-section">
+          <div class="hw-tree-section-header">
+            <span class="hw-tree-section-icon hw-tree-section-icon--capital"></span>
+            <h3 class="hw-tree-section-title">Capital Ships</h3>
+          </div>
+          <div class="hw-tree-ships">
+            <div class="hw-tree-ship-col">
+              <div class="hw-ship-card" data-ship="destroyer">
+                <div class="hw-ship-image">
+                  <img src="assets/ships/kushan-destroyer.webp" alt="Kushan Destroyer" class="hw-ship-img" loading="lazy">
+                </div>
+                <div class="hw-ship-info">
+                  <h4 class="hw-ship-name">Destroyer</h4>
+                  <span class="hw-ship-class">Capital</span>
+                </div>
+              </div>
+              <div class="hw-ship-card hw-ship-card--disabled" data-ship="missile-destroyer">
+                <div class="hw-ship-image">
+                  <img src="assets/ships/kushan-missile-destroyer.webp" alt="Kushan Missile Destroyer" class="hw-ship-img" loading="lazy">
+                </div>
+                <div class="hw-ship-info">
+                  <h4 class="hw-ship-name">Missile Destroyer</h4>
+                  <span class="hw-ship-class">Capital</span>
+                </div>
+              </div>
+              <div class="hw-ship-card hw-ship-card--disabled" data-ship="carrier">
+                <div class="hw-ship-image">
+                  <img src="assets/ships/kushan-carrier.webp" alt="Kushan Carrier" class="hw-ship-img" loading="lazy">
+                </div>
+                <div class="hw-ship-info">
+                  <h4 class="hw-ship-name">Carrier</h4>
+                  <span class="hw-ship-class">Capital</span>
+                  <span class="hw-ship-note">Not compatible yet with Freelancer mechanics</span>
+                </div>
+              </div>
+            </div>
+            <div class="hw-tree-ship-col">
+              <div class="hw-ship-card" data-ship="battlecruiser">
+                <div class="hw-ship-image">
+                  <img src="assets/ships/kushan-battlecruiser.webp" alt="Kushan Battlecruiser" class="hw-ship-img" loading="lazy">
+                </div>
+                <div class="hw-ship-info">
+                  <h4 class="hw-ship-name">Battlecruiser</h4>
+                  <span class="hw-ship-class">Capital</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div><!-- End Combat Row -->
+        
+        <!-- Utility Row -->
+        <div class="hw-tree-row hw-tree-row-utility">
+          <div class="hw-tree-section">
+            <div class="hw-tree-section-header">
+              <span class="hw-tree-section-icon hw-tree-section-icon--harvesting"></span>
+              <h3 class="hw-tree-section-title">Harvesting</h3>
+            </div>
+            <div class="hw-tree-ships">
+              <div class="hw-tree-ship-col">
+                <div class="hw-ship-card" data-ship="resource-collector">
+                  <div class="hw-ship-image">
+                    <img src="assets/ships/kushan-resource-collector.webp" alt="Kushan Resource Collector" class="hw-ship-img" loading="lazy">
+                  </div>
+                  <div class="hw-ship-info">
+                    <h4 class="hw-ship-name">Resource Collector</h4>
+                    <span class="hw-ship-class">Support</span>
+                  </div>
+                </div>
+                <div class="hw-ship-card--disabled" data-ship="resource-collector">
+                  <div class="hw-ship-image">
+                    <img src="assets/ships/kushan-resource-controller.webp" alt="Kushan Resource Controller" class="hw-ship-img" loading="lazy">
+                  </div>
+                  <div class="hw-ship-info">
+                    <h4 class="hw-ship-name">Resource Controller</h4>
+                    <span class="hw-ship-class">Support</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Taiidan Ship Tree -->
+  <section id="taiidan" class="hw-ship-tree">
+    <div class="hw-tree-wrapper">
+      <div class="hw-faction-header taiidan-header">
+        <div class="hw-faction-emblem taiidan-emblem">🔶</div>
+        <div class="hw-faction-info">
+          <h2>Taiidan Fleet</h2>
+          <p>The imperial navy that once ruled Hiigara. Their ships favor overwhelming firepower and aggressive tactics.</p>
+        </div>
+      </div>
+      
+      <!-- Tree Container -->
+      <div class="hw-tree-container">
+        <!-- Fleet Bracket -->
+        <div class="hw-fleet-bracket taiidan-bracket">
+          <div class="hw-fleet-bracket-inner">
+            <span class="hw-fleet-name">TAIIDAN</span>
+            <span class="hw-fleet-bracket-bottom"></span>
+          </div>
+        </div>
+        
+        <!-- Combat Row -->
+        <div class="hw-tree-row hw-tree-row-combat">
+          <!-- Fighters -->
+        <div class="hw-tree-section">
+          <div class="hw-tree-section-header taiidan-section">
+            <span class="hw-tree-section-icon hw-tree-section-icon--fighter"></span>
+            <h3 class="hw-tree-section-title">Fighters</h3>
+          </div>
+          <div class="hw-tree-ships">
+            <div class="hw-tree-ship-col">
+              <div class="hw-ship-card taiidan-card" data-ship="interceptor">
+                <div class="hw-ship-image">
+                  <img src="assets/ships/taiidan-interceptor.webp" alt="Taiidan Interceptor" class="hw-ship-img" loading="lazy">
+                </div>
+                <div class="hw-ship-info">
+                  <h4 class="hw-ship-name">Interceptor</h4>
+                  <span class="hw-ship-class">Fighter</span>
+                </div>
+              </div>
+              <div class="hw-ship-card taiidan-card" data-ship="scout">
+                <div class="hw-ship-image">
+                  <img src="assets/ships/taiidan-scout.webp" alt="Taiidan Scout" class="hw-ship-img" loading="lazy">
+                </div>
+                <div class="hw-ship-info">
+                  <h4 class="hw-ship-name">Scout</h4>
+                  <span class="hw-ship-class">Fighter</span>
+                </div>
+              </div>
+            </div>
+            <div class="hw-tree-ship-col">
+              <div class="hw-ship-card taiidan-card hw-ship-card--disabled" data-ship="bomber">
+                <div class="hw-ship-image">
+                  <img src="assets/ships/taiidan-bomber.webp" alt="Taiidan Bomber" class="hw-ship-img" loading="lazy">
+                </div>
+                <div class="hw-ship-info">
+                  <h4 class="hw-ship-name">Bomber</h4>
+                  <span class="hw-ship-class">Fighter</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Corvettes -->
+        <div class="hw-tree-section">
+          <div class="hw-tree-section-header taiidan-section">
+            <span class="hw-tree-section-icon hw-tree-section-icon--corvette"></span>
+            <h3 class="hw-tree-section-title">Corvettes</h3>
+          </div>
+          <div class="hw-tree-ships">
+            <div class="hw-tree-ship-col">
+              <div class="hw-ship-card taiidan-card hw-ship-card--disabled" data-ship="light-corvette">
+                <div class="hw-ship-image">
+                  <img src="assets/ships/taiidan-light-corvette.webp" alt="Taiidan Light Corvette" class="hw-ship-img" loading="lazy">
+                </div>
+                <div class="hw-ship-info">
+                  <h4 class="hw-ship-name">Light Corvette</h4>
+                  <span class="hw-ship-class">Corvette</span>
+                </div>
+              </div>
+              <div class="hw-ship-card taiidan-card" data-ship="heavy-corvette">
+                <div class="hw-ship-image">
+                  <img src="assets/ships/taiidan-heavy-corvette.webp" alt="Taiidan Heavy Corvette" class="hw-ship-img" loading="lazy">
+                </div>
+                <div class="hw-ship-info">
+                  <h4 class="hw-ship-name">Heavy Corvette</h4>
+                  <span class="hw-ship-class">Corvette</span>
+                </div>
+              </div>
+            </div>
+            <div class="hw-tree-ship-col">
+              <div class="hw-ship-card taiidan-card hw-ship-card--disabled" data-ship="multigun-corvette">
+                <div class="hw-ship-image">
+                  <img src="assets/ships/taiidan-multigun-corvette.webp" alt="Taiidan Multi-Gun Corvette" class="hw-ship-img" loading="lazy">
+                </div>
+                <div class="hw-ship-info">
+                  <h4 class="hw-ship-name">Multi-Gun Corvette</h4>
+                  <span class="hw-ship-class">Corvette</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Frigates -->
+        <div class="hw-tree-section">
+          <div class="hw-tree-section-header taiidan-section">
+            <span class="hw-tree-section-icon hw-tree-section-icon--frigate"></span>
+            <h3 class="hw-tree-section-title">Frigates</h3>
+          </div>
+          <div class="hw-tree-ships">
+            <div class="hw-tree-ship-col">
+              <div class="hw-ship-card taiidan-card hw-ship-card--disabled" data-ship="ion-cannon-frigate">
+                <div class="hw-ship-image">
+                  <img src="assets/ships/taiidan-ion-cannon-frigate.webp" alt="Taiidan Ion Cannon Frigate" class="hw-ship-img" loading="lazy">
+                </div>
+                <div class="hw-ship-info">
+                  <h4 class="hw-ship-name">Ion Cannon</h4>
+                  <span class="hw-ship-class">Frigate</span>
+                </div>
+              </div>
+              <div class="hw-ship-card taiidan-card" data-ship="assault-frigate">
+                <div class="hw-ship-image">
+                  <img src="assets/ships/taiidan-assault-frigate.webp" alt="Taiidan Assault Frigate" class="hw-ship-img" loading="lazy">
+                </div>
+                <div class="hw-ship-info">
+                  <h4 class="hw-ship-name">Assault Frigate</h4>
+                  <span class="hw-ship-class">Frigate</span>
+                </div>
+              </div>
+            </div>
+            <div class="hw-tree-ship-col">
+              <div class="hw-ship-card taiidan-card hw-ship-card--disabled" data-ship="support-frigate">
+                <div class="hw-ship-image">
+                  <img src="assets/ships/taiidan-support-frigate.webp" alt="Taiidan Support Frigate" class="hw-ship-img" loading="lazy">
+                </div>
+                <div class="hw-ship-info">
+                  <h4 class="hw-ship-name">Support Frigate</h4>
+                  <span class="hw-ship-class">Frigate</span>
+                </div>
+              </div>
+              <div class="hw-ship-card taiidan-card hw-ship-card--disabled" data-ship="field-frigate">
+                <div class="hw-ship-image">
+                  <img src="assets/ships/taiidan-field-frigate.webp" alt="Taiidan Field Frigate" class="hw-ship-img" loading="lazy">
+                </div>
+                <div class="hw-ship-info">
+                  <h4 class="hw-ship-name">Field Frigate</h4>
+                  <span class="hw-ship-class">Frigate</span>
+                  <span class="hw-ship-note">Not compatible yet with Freelancer mechanics</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Capital Ships -->
+        <div class="hw-tree-section">
+          <div class="hw-tree-section-header taiidan-section">
+            <span class="hw-tree-section-icon hw-tree-section-icon--capital"></span>
+            <h3 class="hw-tree-section-title">Capital Ships</h3>
+          </div>
+          <div class="hw-tree-ships">
+            <div class="hw-tree-ship-col">
+              <div class="hw-ship-card taiidan-card" data-ship="destroyer">
+                <div class="hw-ship-image">
+                  <img src="assets/ships/taiidan-destroyer.webp" alt="Taiidan Destroyer" class="hw-ship-img" loading="lazy">
+                </div>
+                <div class="hw-ship-info">
+                  <h4 class="hw-ship-name">Destroyer</h4>
+                  <span class="hw-ship-class">Capital</span>
+                </div>
+              </div>
+              <div class="hw-ship-card taiidan-card hw-ship-card--disabled" data-ship="missile-destroyer">
+                <div class="hw-ship-image">
+                  <img src="assets/ships/taiidan-missile-destroyer.webp" alt="Taiidan Missile Destroyer" class="hw-ship-img" loading="lazy">
+                </div>
+                <div class="hw-ship-info">
+                  <h4 class="hw-ship-name">Missile Destroyer</h4>
+                  <span class="hw-ship-class">Capital</span>
+                </div>
+              </div>
+              <div class="hw-ship-card taiidan-card hw-ship-card--disabled" data-ship="carrier">
+                <div class="hw-ship-image">
+                  <img src="assets/ships/taiidan-carrier.webp" alt="Taiidan Carrier" class="hw-ship-img" loading="lazy">
+                </div>
+                <div class="hw-ship-info">
+                  <h4 class="hw-ship-name">Carrier</h4>
+                  <span class="hw-ship-class">Capital</span>
+                  <span class="hw-ship-note">Not compatible yet with Freelancer mechanics</span>
+                </div>
+              </div>
+            </div>
+            <div class="hw-tree-ship-col">
+              <div class="hw-ship-card taiidan-card" data-ship="battlecruiser">
+                <div class="hw-ship-image">
+                  <img src="assets/ships/taiidan-battlecruiser.webp" alt="Taiidan Battlecruiser" class="hw-ship-img" loading="lazy">
+                </div>
+                <div class="hw-ship-info">
+                  <h4 class="hw-ship-name">Battlecruiser</h4>
+                  <span class="hw-ship-class">Capital</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div><!-- End Combat Row -->
+        
+        <!-- Utility Row -->
+        <div class="hw-tree-row hw-tree-row-utility">
+          <div class="hw-tree-section">
+            <div class="hw-tree-section-header taiidan-section">
+              <span class="hw-tree-section-icon hw-tree-section-icon--harvesting"></span>
+              <h3 class="hw-tree-section-title">Utility</h3>
+            </div>
+            <div class="hw-tree-ships">
+              <div class="hw-tree-ship-col">
+                <div class="hw-ship-card taiidan-card" data-ship="resource-collector">
+                  <div class="hw-ship-image">
+                    <img src="assets/ships/taiidan-resource-collector.webp" alt="Taiidan Resource Collector" class="hw-ship-img" loading="lazy">
+                  </div>
+                  <div class="hw-ship-info">
+                    <h4 class="hw-ship-name">Resource Collector</h4>
+                    <span class="hw-ship-class">Support</span>
+                  </div>
+                </div>
+                <div class="hw-ship-card taiidan-card hw-ship-card--disabled" data-ship="resource-controller">
+                  <div class="hw-ship-image">
+                    <img src="assets/ships/taiidan-resource-controller.webp" alt="Taiidan Resource Controller" class="hw-ship-img" loading="lazy">
+                  </div>
+                  <div class="hw-ship-info">
+                    <h4 class="hw-ship-name">Resource Controller</h4>
+                    <span class="hw-ship-class">Support</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="hw-tree-section">
+            <div class="hw-tree-section-header taiidan-section">
+              <span class="hw-tree-section-icon hw-tree-section-icon--transport"></span>
+              <h3 class="hw-tree-section-title">Transports</h3>
+            </div>
+            <div class="hw-tree-ships">
+              <div class="hw-tree-ship-col">
+                <div class="hw-ship-card taiidan-card" data-ship="atlas-transport">
+                  <div class="hw-ship-image">
+                    <img src="assets/ships/taiidan-atlas-transport.webp" alt="Taiidan Atlas Transport" class="hw-ship-img" loading="lazy">
+                  </div>
+                  <div class="hw-ship-info">
+                    <h4 class="hw-ship-name">Atlas Transport</h4>
+                    <span class="hw-ship-class">Transport</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Somtaaw Ship Tree -->
+  <section id="somtaaw" class="hw-ship-tree">
+    <div class="hw-tree-wrapper">
+      <div class="hw-faction-header somtaaw-header">
+        <div class="hw-faction-emblem somtaaw-emblem">⚙</div>
+        <div class="hw-faction-info">
+          <h2>Somtaaw Fleet</h2>
+          <p>A Kiith mining clan. Their ships blend deep-space industry with reverse-engineered alien technology.</p>
+        </div>
+      </div>
+
+      <div class="hw-tree-container">
+        <div class="hw-fleet-bracket somtaaw-bracket">
+          <div class="hw-fleet-bracket-inner">
+            <span class="hw-fleet-name">SOMTAAW</span>
+            <span class="hw-fleet-bracket-bottom"></span>
+          </div>
+        </div>
+
+        <!-- Single horizontal row: available | red divider | future ships | red divider | mothership -->
+        <div class="hw-tree-row hw-tree-row-combat">
+          <!-- Fighters -->
+          <div class="hw-tree-section">
+            <div class="hw-tree-section-header somtaaw-section">
+              <span class="hw-tree-section-icon hw-tree-section-icon--fighter"></span>
+              <h3 class="hw-tree-section-title">Fighters</h3>
+            </div>
+            <div class="hw-tree-ships">
+              <div class="hw-tree-ship-col">
+                <div class="hw-ship-card somtaaw-card hw-ship-card--disabled" data-ship="scout">
+                  <div class="hw-ship-image"><img src="assets/ships/somtaaw-scout.webp" alt="Somtaaw Scout" class="hw-ship-img" loading="lazy"></div>
+                  <div class="hw-ship-info">
+                    <h4 class="hw-ship-name">Scout</h4>
+                    <span class="hw-ship-class">Fighter</span>
+                  </div>
+                </div>
+                <div class="hw-ship-card somtaaw-card" data-ship="acolyte">
+                  <div class="hw-ship-image"><img src="assets/ships/somtaaw-acolyte.webp" alt="Somtaaw Acolyte" class="hw-ship-img" loading="lazy"></div>
+                  <div class="hw-ship-info">
+                    <h4 class="hw-ship-name">Acolyte</h4>
+                    <span class="hw-ship-class">Fighter</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          <!-- Ramming Frigate Pre-divider -->
+          <div class="hw-tree-section">
+            <div class="hw-tree-section-header somtaaw-section">
+              <span class="hw-tree-section-icon hw-tree-section-icon--frigate"></span>
+              <h3 class="hw-tree-section-title">Frigates</h3>
+            </div>
+            <div class="hw-tree-ships">
+              <div class="hw-tree-ship-col">
+                <div class="hw-ship-card somtaaw-card" data-ship="ramming-frigate">
+                  <div class="hw-ship-image"><img src="assets/ships/somtaaw-ramming-frigate.webp" alt="Somtaaw Ramming Frigate" class="hw-ship-img" loading="lazy"></div>
+                  <div class="hw-ship-info">
+                    <h4 class="hw-ship-name">Ramming Frigate</h4>
+                    <span class="hw-ship-class">Frigate</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Red Divider -->
+          <div class="hw-red-divider"><span class="hw-divider-label">PRE‑BEAST ERA</span></div>
+
+          <!-- Corvettes -->
+          <div class="hw-tree-section">
+            <div class="hw-tree-section-header somtaaw-section">
+              <span class="hw-tree-section-icon hw-tree-section-icon--corvette"></span>
+              <h3 class="hw-tree-section-title">Corvettes</h3>
+            </div>
+            <div class="hw-tree-ships">
+              <div class="hw-tree-ship-col">
+                <div class="hw-ship-card somtaaw-card hw-ship-card--disabled" data-ship="acv-corvette">
+                  <div class="hw-ship-image"><img src="assets/ships/somtaaw-acv-corvette.webp" alt="Somtaaw ACV Corvette" class="hw-ship-img" loading="lazy"></div>
+                  <div class="hw-ship-info">
+                    <h4 class="hw-ship-name">ACV Corvette</h4>
+                    <span class="hw-ship-class">Corvette</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Frigates -->
+          <div class="hw-tree-section">
+            <div class="hw-tree-section-header somtaaw-section">
+              <span class="hw-tree-section-icon hw-tree-section-icon--frigate"></span>
+              <h3 class="hw-tree-section-title">Frigates</h3>
+            </div>
+            <div class="hw-tree-ships">
+              <div class="hw-tree-ship-col">
+                <div class="hw-ship-card somtaaw-card hw-ship-card--disabled" data-ship="multibeam-frigate">
+                  <div class="hw-ship-image"><img src="assets/ships/somtaaw-multibeam-frigate.webp" alt="Somtaaw Multibeam Frigate" class="hw-ship-img" loading="lazy"></div>
+                  <div class="hw-ship-info">
+                    <h4 class="hw-ship-name">Multibeam Frigate</h4>
+                    <span class="hw-ship-class">Frigate</span>
+                  </div>
+                </div>
+                <div class="hw-ship-card somtaaw-card hw-ship-card--disabled" data-ship="drone-frigate">
+                  <div class="hw-ship-image"><img src="assets/ships/somtaaw-drone-frigate.webp" alt="Somtaaw Drone Frigate" class="hw-ship-img" loading="lazy"></div>
+                  <div class="hw-ship-info">
+                    <h4 class="hw-ship-name">Drone Frigate</h4>
+                    <span class="hw-ship-class">Frigate</span>
+                  </div>
+                </div>
+              </div>
+              <div class="hw-tree-ship-col">
+
+              </div>
+            </div>
+          </div>
+
+          <!-- Capital Ships -->
+          <div class="hw-tree-section">
+            <div class="hw-tree-section-header somtaaw-section">
+              <span class="hw-tree-section-icon hw-tree-section-icon--capital"></span>
+              <h3 class="hw-tree-section-title">Capital Ships</h3>
+            </div>
+            <div class="hw-tree-ships">
+              <div class="hw-tree-ship-col">
+                <div class="hw-ship-card somtaaw-card hw-ship-card--disabled" data-ship="somtaaw-destroyer">
+                  <div class="hw-ship-image"><img src="assets/ships/somtaaw-destroyer.webp" alt="Somtaaw Destroyer" class="hw-ship-img" loading="lazy"></div>
+                  <div class="hw-ship-info">
+                    <h4 class="hw-ship-name">Somtaaw Destroyer</h4>
+                    <span class="hw-ship-class">Capital</span>
+                  </div>
+                </div>
+                <div class="hw-ship-card somtaaw-card hw-ship-card--disabled" data-ship="somtaaw-carrier">
+                  <div class="hw-ship-image"><img src="assets/ships/somtaaw-carrier.webp" alt="Somtaaw Carrier" class="hw-ship-img" loading="lazy"></div>
+                  <div class="hw-ship-info">
+                    <h4 class="hw-ship-name">Somtaaw Carrier</h4>
+                    <span class="hw-ship-class">Capital</span>
+                  </div>
+                </div>
+              </div>
+              <div class="hw-tree-ship-col">
+                <div class="hw-ship-card somtaaw-card hw-ship-card--disabled" data-ship="archangel">
+                  <div class="hw-ship-image"><img src="assets/ships/somtaaw-dreadnought.webp" alt="Archangel Dreadnought" class="hw-ship-img" loading="lazy"></div>
+                  <div class="hw-ship-info">
+                    <h4 class="hw-ship-name">Archangel Dreadnought</h4>
+                    <span class="hw-ship-class">Capital</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Red Divider -->
+          <div class="hw-red-divider"></div>
+
+          <!-- Mothership -->
+          <div class="hw-tree-section">
+            <div class="hw-tree-section-header somtaaw-section">
+              <span class="hw-tree-section-icon hw-tree-section-icon--mothership"></span>
+              <h3 class="hw-tree-section-title">Mothership</h3>
+            </div>
+            <div class="hw-tree-ships">
+              <div class="hw-tree-ship-col">
+                <div class="hw-ship-card somtaaw-card hw-ship-card--disabled" data-ship="explorer-class" style="width:200px">
+                  <div class="hw-ship-image"><img src="assets/ships/somtaaw-kuunlan.webp" alt="Explorer-class Mining Vessel" class="hw-ship-img" loading="lazy"></div>
+                  <div class="hw-ship-info">
+                    <h4 class="hw-ship-name">Explorer-class Deep Space Mining Vessel</h4>
+                    <span class="hw-ship-class">Mothership</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div><!-- End single row -->
+        <div class="hw-tree-row hw-tree-row-utility">
+          <!-- Harvesting separated row -->
+          <div class="hw-tree-section">
+            <div class="hw-tree-section-header somtaaw-section">
+              <span class="hw-tree-section-icon hw-tree-section-icon--harvesting"></span>
+              <h3 class="hw-tree-section-title">Harvesting</h3>
+            </div>
+            <div class="hw-tree-ships">
+              <div class="hw-tree-ship-col">
+                <div class="hw-ship-card somtaaw-card hw-ship-card--disabled" data-ship="resource-processor">
+                  <div class="hw-ship-image"><img src="assets/ships/somtaaw-processor.webp" alt="Somtaaw Resource Processor" class="hw-ship-img" loading="lazy"></div>
+                  <div class="hw-ship-info">
+                    <h4 class="hw-ship-name">Resource Processor</h4>
+                    <span class="hw-ship-class">Support</span>
+                  </div>
+                </div>
+                <div class="hw-ship-card somtaaw-card hw-ship-card--disabled" data-ship="resource-collector">
+                  <div class="hw-ship-image"><img src="assets/ships/somtaaw-resource-collector.webp" alt="Somtaaw Resource Collector" class="hw-ship-img" loading="lazy"></div>
+                  <div class="hw-ship-info">
+                    <h4 class="hw-ship-name">Resource Collector</h4>
+                    <span class="hw-ship-class">Support</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Turanic Raiders Ship Tree -->
+  <section id="turanic" class="hw-ship-tree">
+    <div class="hw-tree-wrapper">
+      <div class="hw-faction-header turanic-header">
+        <div class="hw-faction-emblem turanic-emblem">⚔</div>
+        <div class="hw-faction-info">
+          <h2>Turanic Raiders</h2>
+          <p>A ruthless marauder fleet plundering the galaxy. Lightning-fast fighters backed by powerful missiles, though their carrier tech lags.</p>
+        </div>
+      </div>
+      <div class="hw-tree-container">
+        <div class="hw-fleet-bracket turanic-bracket">
+          <div class="hw-fleet-bracket-inner">
+            <span class="hw-fleet-name">TURANIC</span>
+            <span class="hw-fleet-bracket-bottom"></span>
+          </div>
+        </div>
+        <div class="hw-tree-row hw-tree-row-combat">
+          <!-- Fighters -->
+          <div class="hw-tree-section">
+            <div class="hw-tree-section-header turanic-section">
+              <span class="hw-tree-section-icon hw-tree-section-icon--fighter"></span>
+              <h3 class="hw-tree-section-title">Fighters</h3>
+            </div>
+            <div class="hw-tree-ships">
+              <div class="hw-tree-ship-col">
+                <div class="hw-ship-card turanic-card" data-ship="turanic-scout">
+                  <div class="hw-ship-image"><img src="assets/ships/turanic-interceptor.webp" alt="Turanic Scout" class="hw-ship-img" loading="lazy"></div>
+                  <div class="hw-ship-info">
+                    <h4 class="hw-ship-name">Turanic Scout</h4>
+                    <span class="hw-ship-class">Fighter</span>
+                  </div>
+                </div>
+                <div class="hw-ship-card turanic-card" data-ship="turanic-interceptor">
+                  <div class="hw-ship-image"><img src="assets/ships/turanic-interceptor.webp" alt="Turanic Interceptor" class="hw-ship-img" loading="lazy"></div>
+                  <div class="hw-ship-info">
+                    <h4 class="hw-ship-name">Turanic Interceptor</h4>
+                    <span class="hw-ship-class">Fighter</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Corvettes -->
+          <div class="hw-tree-section">
+            <div class="hw-tree-section-header turanic-section">
+              <span class="hw-tree-section-icon hw-tree-section-icon--corvette"></span>
+              <h3 class="hw-tree-section-title">Corvettes</h3>
+            </div>
+            <div class="hw-tree-ships">
+              <div class="hw-tree-ship-col">
+                <div class="hw-ship-card turanic-card" data-ship="turanic-missile-corvette">
+                  <div class="hw-ship-image"><img src="assets/ships/turanic-missile-corvette.webp" alt="Turanic Missile Corvette" class="hw-ship-img" loading="lazy"></div>
+                  <div class="hw-ship-info">
+                    <h4 class="hw-ship-name">Turanic Missile Corvette</h4>
+                    <span class="hw-ship-class">Corvette</span>
+                  </div>
+                </div>
+                <div class="hw-ship-card turanic-card hw-ship-card--disabled" data-ship="turanic-standard-corvette">
+                  <div class="hw-ship-image"><img src="assets/ships/turanic-standard-corvette.webp" alt="Turanic Standard Corvette" class="hw-ship-img" loading="lazy"></div>
+                  <div class="hw-ship-info">
+                    <h4 class="hw-ship-name">Turanic Standard Corvette</h4>
+                    <span class="hw-ship-class">Corvette</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Frigates -->
+          <div class="hw-tree-section">
+            <div class="hw-tree-section-header turanic-section">
+              <span class="hw-tree-section-icon hw-tree-section-icon--frigate"></span>
+              <h3 class="hw-tree-section-title">Frigates</h3>
+            </div>
+            <div class="hw-tree-ships">
+              <div class="hw-tree-ship-col">
+                <div class="hw-ship-card turanic-card" data-ship="turanic-ion-frigate">
+                  <div class="hw-ship-image"><img src="assets/ships/turanic-ion-frigate.webp" alt="Turanic Ion Frigate" class="hw-ship-img" loading="lazy"></div>
+                  <div class="hw-ship-info">
+                    <h4 class="hw-ship-name">Turanic Ion Frigate</h4>
+                    <span class="hw-ship-class">Frigate</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Capital -->
+          <div class="hw-tree-section">
+            <div class="hw-tree-section-header turanic-section">
+              <span class="hw-tree-section-icon hw-tree-section-icon--capital"></span>
+              <h3 class="hw-tree-section-title">Capital Ships</h3>
+            </div>
+            <div class="hw-tree-ships">
+              <div class="hw-tree-ship-col">
+                <div class="hw-ship-card turanic-card hw-ship-card--disabled" data-ship="turanic-carrier">
+                  <div class="hw-ship-image"><img src="assets/ships/turanic-carrier.webp" alt="Turanic Carrier" class="hw-ship-img" loading="lazy"></div>
+                  <div class="hw-ship-info">
+                    <h4 class="hw-ship-name">Turanic Carrier</h4>
+                    <span class="hw-ship-class">Capital</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CCR Ship Tree -->
+  <section id="ccr" class="hw-ship-tree">
+    <div class="hw-tree-wrapper">
+      <div class="hw-faction-header ccr-header">
+        <div class="hw-faction-emblem ccr-emblem">🛡</div>
+        <div class="hw-faction-info">
+          <h2>CCR</h2>
+          <p>The Crimson Conservative Resistance – nimble raiders with limited support ships.</p>
+        </div>
+      </div>
+      <div class="hw-tree-container">
+        <div class="hw-fleet-bracket ccr-bracket">
+          <div class="hw-fleet-bracket-inner">
+            <span class="hw-fleet-name">CCR</span>
+            <span class="hw-fleet-bracket-bottom"></span>
+          </div>
+        </div>
+        <div class="hw-tree-row hw-tree-row-combat">
+          <!-- Fighters -->
+          <div class="hw-tree-section">
+            <div class="hw-tree-section-header ccr-section">
+              <span class="hw-tree-section-icon hw-tree-section-icon--fighter"></span>
+              <h3 class="hw-tree-section-title">Fighters</h3>
+            </div>
+            <div class="hw-tree-ships">
+              <div class="hw-tree-ship-col">
+                <div class="hw-ship-card ccr-card" data-ship="ccr-interceptor">
+                  <div class="hw-ship-image"><img src="assets/ships/ccr-interceptor.webp" alt="CCR Interceptor" class="hw-ship-img" loading="lazy"></div>
+                  <div class="hw-ship-info">
+                    <h4 class="hw-ship-name">CCR Interceptor</h4>
+                    <span class="hw-ship-class">Fighter</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="hw-tree-row hw-tree-row-utility">
+          <!-- Freighters and Transports in same row -->
+          <div class="hw-tree-section">
+            <div class="hw-tree-section-header ccr-section">
+              <span class="hw-tree-section-icon hw-tree-section-icon--freighter"></span>
+              <h3 class="hw-tree-section-title">Freighters</h3>
+            </div>
+            <div class="hw-tree-ships">
+              <div class="hw-tree-ship-col">
+                <div class="hw-ship-card ccr-card" data-ship="kushan-freighter-corvette">
+                  <div class="hw-ship-image"><img src="assets/ships/ccr-freighter-corvette.webp" alt="Kushan Freighter Corvette" class="hw-ship-img" loading="lazy"></div>
+                  <div class="hw-ship-info">
+                    <h4 class="hw-ship-name">Kushan Freighter Corvette</h4>
+                    <span class="hw-ship-class">Corvette</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="hw-tree-section">
+            <div class="hw-tree-section-header ccr-section">
+              <span class="hw-tree-section-icon hw-tree-section-icon--transport"></span>
+              <h3 class="hw-tree-section-title">Transports</h3>
+            </div>
+            <div class="hw-tree-ships">
+              <div class="hw-tree-ship-col">
+                <div class="hw-ship-card ccr-card" data-ship="large-transport">
+                  <div class="hw-ship-image"><img src="assets/ships/ccr-large-transport.webp" alt="CCR Large Transport" class="hw-ship-img" loading="lazy"></div>
+                  <div class="hw-ship-info">
+                    <h4 class="hw-ship-name">Large Transport</h4>
+                    <span class="hw-ship-class">Support</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="hw-footer">
+    <div class="container">
+      <div class="hw-footer-bottom" style="border-top: none; padding-top: 0;">
+        <p class="hw-footer-copy">
+          © 2024 Homeworld Rise of Hiigara. All rights reserved.<br>
+          Homeworld is a trademark of Gearbox Software and Relic Entertainment.
+        </p>
+        
+        <div class="hw-social">
+          <a href="#" class="hw-social-link" title="Discord">💬</a>
+          <a href="#" class="hw-social-link" title="Twitter">🐦</a>
+          <a href="#" class="hw-social-link" title="YouTube">📺</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  
+  <script src="js/main.js"></script>
+  <script src="js/ships.js"></script>
+</body>
+</html>

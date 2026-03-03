@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /private/
+Disallow: /*.php$
+Disallow: /cgi-bin/
+
+Sitemap: https://roh.example.com/sitemap.xml
+
+# Crawl delay to be respectful
+Crawl-delay: 1

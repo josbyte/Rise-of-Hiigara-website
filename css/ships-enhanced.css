@@ -1,0 +1,544 @@
+/* =========================================
+   SHIP CLASSES PAGE - Enhanced Styles
+   Search, filters, responsive grid, accessibility
+   ========================================= */
+
+/* === SEARCH & FILTER UI === */
+.hw-search-container {
+  padding: var(--space-6) 0;
+  border-bottom: 1px solid var(--hw-border);
+  position: sticky;
+  top: calc(var(--nav-height) + 60px);
+  background: rgba(10, 10, 18, 0.95);
+  z-index: 40;
+  backdrop-filter: blur(10px);
+}
+
+.hw-search-box {
+  position: relative;
+  max-width: 500px;
+  margin: 0 auto var(--space-5);
+}
+
+.hw-search-input {
+  width: 100%;
+  padding: var(--space-4) var(--space-5) var(--space-4) var(--space-8);
+  background: var(--hw-dark-card);
+  border: 1px solid var(--hw-border);
+  color: var(--hw-text);
+  font-family: var(--font-hw);
+  font-size: var(--text-base);
+  border-radius: var(--radius-md);
+  transition: var(--transition-base);
+}
+
+.hw-search-input:focus {
+  outline: 2px solid var(--hw-orange);
+  outline-offset: 0;
+  border-color: var(--hw-orange);
+  box-shadow: 0 0 15px rgba(255, 159, 28, 0.3);
+}
+
+.hw-search-input::placeholder {
+  color: var(--hw-text-dim);
+}
+
+.hw-search-icon {
+  position: absolute;
+  left: var(--space-3);
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: var(--text-lg);
+  pointer-events: none;
+  color: var(--hw-text-dim);
+}
+
+.hw-filter-buttons {
+  display: flex;
+  gap: var(--space-3);
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.hw-filter-btn {
+  padding: var(--space-2) var(--space-4);
+  background: var(--hw-dark-card);
+  border: 1px solid var(--hw-border);
+  color: var(--hw-text-dim);
+  font-family: var(--font-hw);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  transition: var(--transition-base);
+  border-radius: var(--radius-md);
+}
+
+.hw-filter-btn:hover,
+.hw-filter-btn[aria-pressed="true"] {
+  color: var(--hw-orange);
+  border-color: var(--hw-orange);
+  background: rgba(255, 159, 28, 0.1);
+  box-shadow: 0 0 10px rgba(255, 159, 28, 0.2);
+}
+
+.hw-no-results {
+  text-align: center;
+  padding: var(--space-10);
+  color: var(--hw-text-dim);
+  font-size: var(--text-lg);
+  letter-spacing: 0.1em;
+}
+
+/* === SHIP HEADER === */
+.hw-ship-header {
+  padding: calc(var(--nav-height) + var(--space-16)) 0 var(--space-10);
+  text-align: center;
+  position: relative;
+}
+
+.hw-ship-title {
+  font-size: var(--text-4xl);
+  color: var(--hw-orange);
+  letter-spacing: 0.25em;
+  text-shadow: var(--glow-orange);
+  margin-bottom: var(--space-4);
+}
+
+.hw-ship-subtitle {
+  font-size: var(--text-lg);
+  color: var(--hw-text-dim);
+  letter-spacing: 0.05em;
+}
+
+/* === FACTION TABS === */
+.hw-faction-tabs {
+  padding: var(--space-6) 0;
+  border-bottom: 1px solid var(--hw-border);
+  position: sticky;
+  top: var(--nav-height);
+  background: rgba(10, 10, 18, 0.95);
+  z-index: 50;
+  backdrop-filter: blur(10px);
+}
+
+.hw-tabs {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+}
+
+.hw-tab {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-4) var(--space-8);
+  font-family: var(--font-hw);
+  font-size: var(--text-base);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--hw-text-dim);
+  background: transparent;
+  border: 1px solid var(--hw-border);
+  cursor: pointer;
+  transition: var(--transition-base);
+  position: relative;
+  clip-path: polygon(12px 0, 100% 0, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0 100%, 0 12px);
+  role: 'tab';
+}
+
+.hw-tab:hover {
+  color: var(--hw-text);
+  border-color: var(--hw-border-bright);
+  background: var(--hw-dark-hover);
+}
+
+.hw-tab.active,
+.hw-tab[aria-selected="true"] {
+  color: var(--hw-orange);
+  border-color: var(--hw-orange);
+  background: rgba(255, 159, 28, 0.1);
+  box-shadow: var(--glow-orange);
+}
+
+.hw-tab-icon {
+  font-size: 1.2em;
+}
+
+/* === SHIP TREE === */
+.hw-ship-tree {
+  display: none;
+  padding: var(--space-10) 0;
+}
+
+.hw-ship-tree.active {
+  display: block;
+}
+
+.hw-tree-wrapper {
+  width: 100%;
+  max-width: none;
+}
+
+.hw-tree-container {
+  position: relative;
+  padding: var(--space-8) var(--space-4);
+  padding-left: 80px;
+  overflow-x: auto;
+  overflow-y: visible;
+  display: flex;
+  gap: var(--space-8);
+  align-items: flex-start;
+}
+
+/* === FACTION HEADER === */
+.hw-faction-header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-5);
+  padding: 0 var(--space-4) var(--space-8);
+  max-width: 600px;
+}
+
+.hw-faction-emblem {
+  font-size: 3rem;
+}
+
+.hw-faction-info h2 {
+  color: var(--hw-orange);
+  margin-bottom: var(--space-2);
+}
+
+.hw-faction-info p {
+  color: var(--hw-text-dim);
+  font-size: var(--text-sm);
+}
+
+/* === TREE SECTIONS === */
+.hw-tree-section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  min-width: 150px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.hw-tree-section-title {
+  font-size: var(--text-sm);
+  color: var(--hw-orange);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: var(--space-2);
+  text-align: center;
+  white-space: nowrap;
+}
+
+/* === SHIP CARDS === */
+.hw-ship-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-4);
+  background: var(--hw-dark-card);
+  border: 1px solid var(--hw-border);
+  text-align: center;
+  cursor: pointer;
+  transition: var(--transition-base);
+  position: relative;
+  min-width: 130px;
+}
+
+.hw-ship-card:hover,
+.hw-ship-card:focus-visible {
+  border-color: var(--hw-orange);
+  background: rgba(255, 159, 28, 0.05);
+  transform: translateY(-3px);
+  box-shadow: 0 5px 20px rgba(255, 159, 28, 0.2);
+}
+
+.hw-ship-card:focus-visible {
+  outline: none;
+}
+
+.hw-ship-card.taiidan-card {
+  border-color: var(--hw-text-orange);
+}
+
+.hw-ship-card.taiidan-card:hover {
+  background: rgba(255, 159, 28, 0.08);
+}
+
+.hw-ship-icon {
+  font-size: 2rem;
+  margin-bottom: var(--space-1);
+  filter: grayscale(0.5);
+  transition: filter var(--transition-base);
+}
+
+.hw-ship-card:hover .hw-ship-icon {
+  filter: grayscale(0);
+}
+
+.hw-ship-name {
+  font-family: var(--font-hw);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--hw-text);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  line-height: 1.2;
+}
+
+.hw-ship-class {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--hw-text-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.hw-ship-role {
+  font-size: var(--text-xs);
+  color: var(--hw-blue);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* === CONNECTORS === */
+.hw-tree-connector {
+  position: absolute;
+  height: 2px;
+  background: linear-gradient(90deg, var(--hw-border) 0%, var(--hw-border-bright) 50%, var(--hw-border) 100%);
+  transform-origin: left center;
+  z-index: 0;
+}
+
+.hw-tree-connector.taiidan-connector {
+  background: linear-gradient(90deg, var(--hw-text-orange) 0%, rgba(255, 159, 28, 0.5) 50%, var(--hw-text-orange) 100%);
+}
+
+/* === SHIP MODAL === */
+.hw-ship-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 200;
+  backdrop-filter: blur(5px);
+}
+
+.hw-ship-modal.active {
+  display: flex;
+}
+
+.hw-ship-modal-content {
+  background: var(--hw-dark-panel);
+  border: 2px solid var(--hw-orange);
+  max-width: 500px;
+  width: 90%;
+  max-height: 80vh;
+  padding: var(--space-6);
+  position: relative;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+  animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.hw-ship-modal-close {
+  position: absolute;
+  top: var(--space-4);
+  right: var(--space-4);
+  width: 36px;
+  height: 36px;
+  background: var(--hw-dark-card);
+  border: 1px solid var(--hw-border);
+  color: var(--hw-orange);
+  font-size: var(--text-lg);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition-base);
+  border-radius: var(--radius-md);
+}
+
+.hw-ship-modal-close:hover {
+  background: var(--hw-orange);
+  color: var(--hw-dark);
+  border-color: var(--hw-orange);
+}
+
+.hw-ship-modal-body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-6);
+}
+
+.hw-ship-modal-image {
+  background: linear-gradient(135deg, rgba(255,159,28,0.1), rgba(0,191,255,0.1));
+  border: 1px solid var(--hw-border);
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-md);
+}
+
+.hw-ship-modal-icon {
+  font-size: 4rem;
+  filter: drop-shadow(0 0 20px rgba(255, 159, 28, 0.4));
+}
+
+.hw-ship-modal-title {
+  color: var(--hw-orange);
+  margin-bottom: var(--space-2);
+}
+
+.hw-ship-modal-class {
+  display: block;
+  color: var(--hw-text-dim);
+  font-size: var(--text-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: var(--space-4);
+}
+
+.hw-ship-modal-desc {
+  color: var(--hw-text-dim);
+  font-size: var(--text-sm);
+  line-height: 1.6;
+  margin-bottom: var(--space-4);
+}
+
+.hw-ship-modal-stats {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.hw-modal-stat {
+  display: grid;
+  grid-template-columns: 60px 1fr 50px;
+  align-items: center;
+  gap: var(--space-3);
+  font-size: var(--text-sm);
+}
+
+.hw-modal-stat > span:first-child {
+  color: var(--hw-text-dim);
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.hw-modal-stat-bar {
+  background: var(--hw-dark-card);
+  border: 1px solid var(--hw-border);
+  height: 8px;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.hw-modal-stat-bar span {
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, var(--hw-orange), var(--hw-blue));
+  width: 65%;
+}
+
+.hw-modal-stat-value {
+  color: var(--hw-orange);
+  font-weight: 600;
+  text-align: right;
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 1024px) {
+  .hw-ship-card {
+    min-width: 120px;
+    padding: var(--space-3);
+  }
+
+  .hw-ship-modal-body {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .hw-search-container {
+    top: var(--nav-height);
+  }
+
+  .hw-faction-tabs {
+    padding: var(--space-4) 0;
+  }
+
+  .hw-tabs {
+    gap: var(--space-2);
+  }
+
+  .hw-tab {
+    padding: var(--space-3) var(--space-4);
+    font-size: var(--text-sm);
+  }
+
+  .hw-tree-container {
+    padding-left: var(--space-4);
+    gap: var(--space-4);
+  }
+
+  .hw-ship-card {
+    min-width: 100px;
+    font-size: var(--text-xs);
+  }
+
+  .hw-filter-buttons {
+    gap: var(--space-2);
+  }
+
+  .hw-filter-btn {
+    padding: var(--space-2) var(--space-3);
+    font-size: var(--text-xs);
+  }
+}
+
+@media (max-width: 480px) {
+  .hw-ship-modal-content {
+    width: 95%;
+    padding: var(--space-4);
+  }
+
+  .hw-search-input {
+    padding: var(--space-3) var(--space-4) var(--space-3) var(--space-7);
+    font-size: var(--text-sm);
+  }
+
+  .hw-tabs {
+    gap: var(--space-1);
+  }
+
+  .hw-tab {
+    padding: var(--space-2) var(--space-3);
+    font-size: var(--text-xs);
+    clip-path: polygon(8px 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%, 0 8px);
+  }
+}

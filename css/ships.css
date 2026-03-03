@@ -1,0 +1,1141 @@
+/* =========================================
+   SHIP CLASSES PAGE - Styles
+   Eve Online-style horizontal ship tree layout
+   ========================================= */
+
+/* === SHIP HEADER === */
+.hw-ship-header {
+  padding: calc(var(--nav-height) + var(--space-16)) 0 var(--space-10);
+  text-align: center;
+  position: relative;
+}
+
+.hw-ship-title {
+  font-size: var(--text-4xl);
+  color: var(--hw-orange);
+  letter-spacing: 0.25em;
+  text-shadow: var(--glow-orange);
+  margin-bottom: var(--space-4);
+}
+
+.hw-ship-subtitle {
+  font-size: var(--text-lg);
+  color: var(--hw-text-dim);
+  letter-spacing: 0.05em;
+}
+
+/* === FACTION TABS === */
+.hw-faction-tabs {
+  padding: var(--space-6) 0;
+  border-bottom: 1px solid var(--glass-border);
+  position: sticky;
+  top: var(--nav-height);
+  background: var(--glass-bg);
+  z-index: 50;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.hw-tabs {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-4);
+}
+
+.hw-tab {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-4) var(--space-8);
+  font-family: var(--font-hw);
+  font-size: var(--text-base);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--hw-text-dim);
+  background: transparent;
+  border: 1px solid var(--glass-border);
+  cursor: pointer;
+  transition: var(--transition-smooth);
+  position: relative;
+  clip-path: polygon(12px 0, 100% 0, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0 100%, 0 12px);
+}
+
+.hw-tab:hover {
+  color: var(--hw-text);
+  border-color: var(--hw-border-bright);
+  background: var(--hw-dark-hover);
+  transform: translateY(-2px);
+}
+
+.hw-tab.active {
+  color: var(--hw-orange);
+  border-color: var(--hw-orange);
+  background: rgba(255, 159, 28, 0.1);
+  box-shadow: var(--glow-orange);
+}
+
+.hw-tab-icon {
+  font-size: 1.2em;
+}
+
+/* Tab placeholder for "More to discover..." */
+.hw-tab-placeholder {
+  text-decoration: none;
+  font-style: italic;
+  opacity: 0.6;
+  border-style: dashed;
+}
+
+.hw-tab-placeholder:hover {
+  opacity: 1;
+}
+
+/* === SHIP TREE === */
+.hw-ship-tree {
+  display: none;
+  padding: var(--space-10) 0;
+}
+
+.hw-ship-tree.active {
+  display: block;
+}
+
+/* === TREE WRAPPER === */
+.hw-tree-wrapper {
+  width: 100%;
+  max-width: none;
+}
+
+/* === TREE CONTAINER (no max-width) === */
+.hw-tree-container {
+  position: relative;
+  padding: var(--space-8) var(--space-4);
+  padding-left: 80px;
+  background: var(--hw-dark-panel);
+  border: 1px solid var(--hw-border);
+  overflow-x: auto;
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  isolation: isolate; /* stacking context so ::before z-index:-1 stays inside */
+}
+
+/* === TREE ROWS === */
+.hw-tree-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-8);
+}
+
+.hw-tree-row-combat {
+  display: flex;
+  align-items: flex-start;
+}
+
+.hw-tree-row-utility {
+  padding-top: var(--space-6);
+  border-top: 1px dashed var(--hw-border);
+}
+
+/* === FLEET BRACKET === */
+.hw-fleet-bracket {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+
+.hw-fleet-bracket-inner {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Bracket vertical line */
+.hw-fleet-bracket-inner::before {
+  content: '';
+  position: absolute;
+  left: 20px;
+  top: 30px;
+  height: calc(100% - 60px);
+  width: 3px;
+  background: var(--hw-blue);
+  border-radius: 2px;
+  box-shadow: 0 0 8px rgba(0, 191, 255, 0.4);
+}
+
+/* Top horizontal connector */
+.hw-fleet-bracket-inner::after {
+  content: '';
+  position: absolute;
+  left: 20px;
+  top: 30px;
+  width: 30px;
+  height: 3px;
+  background: var(--hw-blue);
+  border-radius: 2px;
+  box-shadow: 0 0 8px rgba(0, 191, 255, 0.4);
+}
+
+.hw-fleet-name {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) rotate(-90deg);
+  font-size: var(--text-sm);
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  color: var(--hw-blue);
+  text-shadow: 0 0 10px rgba(0, 191, 255, 0.5);
+  white-space: nowrap;
+}
+
+/* Bottom horizontal connector */
+.hw-fleet-bracket-bottom {
+  position: absolute;
+  left: 20px;
+  bottom: 30px;
+  width: 30px;
+  height: 3px;
+  background: var(--hw-blue);
+  border-radius: 2px;
+  box-shadow: 0 0 8px rgba(0, 191, 255, 0.4);
+}
+
+/* Taiidan bracket variant */
+.taiidan-bracket .hw-fleet-bracket-inner::before,
+.taiidan-bracket .hw-fleet-bracket-inner::after,
+.taiidan-bracket .hw-fleet-bracket-bottom {
+  background: var(--hw-orange);
+  box-shadow: 0 0 8px rgba(255, 159, 28, 0.4);
+}
+
+.taiidan-bracket .hw-fleet-name {
+  color: var(--hw-orange);
+  text-shadow: 0 0 10px rgba(255, 159, 28, 0.5);
+}
+
+/* === TREE CONNECTORS (lines between sections) === */
+.hw-tree-connector {
+  position: absolute;
+  top: 50%;
+  height: 2px;
+  background: var(--hw-blue);
+  opacity: 0.5;
+  z-index: 0;
+  transform: translateY(-50%);
+}
+
+.hw-tree-connector.taiidan-connector {
+  background: var(--hw-orange);
+}
+
+/* === TREE SECTION (each ship class) === */
+.hw-tree-section {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: var(--space-16);
+  position: relative;
+  z-index: 1;
+}
+
+.hw-tree-section:last-child {
+  margin-right: 0;
+}
+
+/* === TREE SECTION HEADER === */
+.hw-tree-section-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: var(--space-4);
+  margin-bottom: var(--space-4);
+  border-bottom: 2px solid var(--hw-blue);
+  position: relative;
+}
+
+.hw-tree-section-header::after {
+  content: '';
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 10px;
+  height: 10px;
+  background: var(--hw-blue);
+  border-radius: 50%;
+}
+
+.hw-tree-section-header.taiidan-section {
+  border-bottom-color: var(--hw-orange);
+}
+
+.hw-tree-section-header.taiidan-section::after {
+  background: var(--hw-orange);
+}
+
+.hw-tree-section-icon {
+  width: 28px;
+  height: 28px;
+  margin-bottom: var(--space-2);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.85;
+  filter: drop-shadow(0 0 3px currentColor);
+}
+
+/* Fighter icon — triangle */
+.hw-tree-section-icon--fighter {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64' fill='none' stroke='%2300bfff' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolygon points='32,8 56,56 8,56'/%3E%3C/svg%3E");
+}
+
+/* Corvette icon — square */
+.hw-tree-section-icon--corvette {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64' fill='none' stroke='%2300bfff' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='16' y='16' width='32' height='32'/%3E%3C/svg%3E");
+}
+
+/* Frigate icon — diamond */
+.hw-tree-section-icon--frigate {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64' fill='none' stroke='%2300bfff' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolygon points='32,8 56,32 32,56 8,32'/%3E%3C/svg%3E");
+}
+
+/* Capital ship icon — slanted diamond */
+.hw-tree-section-icon--capital {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64' fill='none' stroke='%2300bfff' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolygon points='16,8 54,24 48,56 10,40'/%3E%3C/svg%3E");
+}
+
+/* Harvesting/utility icon — mining/gear */
+.hw-tree-section-icon--harvesting {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64' fill='none' stroke='%2300bfff' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='32' cy='32' r='12'/%3E%3Ccircle cx='32' cy='32' r='5'/%3E%3Cline x1='32' y1='4' x2='32' y2='16'/%3E%3Cline x1='32' y1='48' x2='32' y2='60'/%3E%3Cline x1='4' y1='32' x2='16' y2='32'/%3E%3Cline x1='48' y1='32' x2='60' y2='32'/%3E%3Cline x1='12' y1='12' x2='20' y2='20'/%3E%3Cline x1='44' y1='44' x2='52' y2='52'/%3E%3Cline x1='52' y1='12' x2='44' y2='20'/%3E%3Cline x1='20' y1='44' x2='12' y2='52'/%3E%3C/svg%3E");
+}
+
+/* Transport icon — cargo hauler */
+.hw-tree-section-icon--transport {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64' fill='none' stroke='%2300bfff' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='14' y='18' width='36' height='28' rx='3'/%3E%3Cpath d='M14 28H8L6 32L8 36H14'/%3E%3Cpath d='M50 28H56L58 32L56 36H50'/%3E%3Cline x1='24' y1='18' x2='24' y2='46'/%3E%3Cline x1='40' y1='18' x2='40' y2='46'/%3E%3Crect x='28' y='26' width='8' height='10' rx='1'/%3E%3C/svg%3E");
+}
+
+/* Mothership icon — elongated hexagon */
+.hw-tree-section-icon--mothership {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64' fill='none' stroke='%2300bfff' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolygon points='8,24 20,8 44,8 56,24 44,56 20,56'/%3E%3C/svg%3E");
+}
+
+/* Freighter icon — armed merchant */
+.hw-tree-section-icon--freighter {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64' fill='none' stroke='%2300bfff' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M16 20H48L54 32L48 44H16L10 32Z'/%3E%3Cline x1='26' y1='20' x2='26' y2='44'/%3E%3Cline x1='38' y1='20' x2='38' y2='44'/%3E%3Crect x='29' y='26' width='6' height='12' rx='1'/%3E%3Cline x1='16' y1='32' x2='10' y2='32'/%3E%3Cline x1='48' y1='32' x2='54' y2='32'/%3E%3C/svg%3E");
+}
+
+/* Taiidan faction colored icons */
+.taiidan-section .hw-tree-section-icon--fighter { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64' fill='none' stroke='%23ff9f1c' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolygon points='32,8 56,56 8,56'/%3E%3C/svg%3E"); }
+.taiidan-section .hw-tree-section-icon--corvette { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64' fill='none' stroke='%23ff9f1c' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='16' y='16' width='32' height='32'/%3E%3C/svg%3E"); }
+.taiidan-section .hw-tree-section-icon--frigate { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64' fill='none' stroke='%23ff9f1c' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolygon points='32,8 56,32 32,56 8,32'/%3E%3C/svg%3E"); }
+.taiidan-section .hw-tree-section-icon--capital { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64' fill='none' stroke='%23ff9f1c' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolygon points='16,8 54,24 48,56 10,40'/%3E%3C/svg%3E"); }
+.taiidan-section .hw-tree-section-icon--harvesting { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64' fill='none' stroke='%23ff9f1c' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='32' cy='32' r='12'/%3E%3Ccircle cx='32' cy='32' r='5'/%3E%3Cline x1='32' y1='4' x2='32' y2='16'/%3E%3Cline x1='32' y1='48' x2='32' y2='60'/%3E%3Cline x1='4' y1='32' x2='16' y2='32'/%3E%3Cline x1='48' y1='32' x2='60' y2='32'/%3E%3Cline x1='12' y1='12' x2='20' y2='20'/%3E%3Cline x1='44' y1='44' x2='52' y2='52'/%3E%3Cline x1='52' y1='12' x2='44' y2='20'/%3E%3Cline x1='20' y1='44' x2='12' y2='52'/%3E%3C/svg%3E"); }
+.taiidan-section .hw-tree-section-icon--transport { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64' fill='none' stroke='%23ff9f1c' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='14' y='18' width='36' height='28' rx='3'/%3E%3Cpath d='M14 28H8L6 32L8 36H14'/%3E%3Cpath d='M50 28H56L58 32L56 36H50'/%3E%3Cline x1='24' y1='18' x2='24' y2='46'/%3E%3Cline x1='40' y1='18' x2='40' y2='46'/%3E%3Crect x='28' y='26' width='8' height='10' rx='1'/%3E%3C/svg%3E"); }
+
+/* Somtaaw faction colored icons */
+.somtaaw-section .hw-tree-section-icon--fighter { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64' fill='none' stroke='%2300d4aa' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolygon points='32,8 56,56 8,56'/%3E%3C/svg%3E"); }
+.somtaaw-section .hw-tree-section-icon--corvette { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64' fill='none' stroke='%2300d4aa' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='16' y='16' width='32' height='32'/%3E%3C/svg%3E"); }
+.somtaaw-section .hw-tree-section-icon--frigate { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64' fill='none' stroke='%2300d4aa' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolygon points='32,8 56,32 32,56 8,32'/%3E%3C/svg%3E"); }
+.somtaaw-section .hw-tree-section-icon--capital { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64' fill='none' stroke='%2300d4aa' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolygon points='16,8 54,24 48,56 10,40'/%3E%3C/svg%3E"); }
+.somtaaw-section .hw-tree-section-icon--harvesting { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64' fill='none' stroke='%2300d4aa' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='32' cy='32' r='12'/%3E%3Ccircle cx='32' cy='32' r='5'/%3E%3Cline x1='32' y1='4' x2='32' y2='16'/%3E%3Cline x1='32' y1='48' x2='32' y2='60'/%3E%3Cline x1='4' y1='32' x2='16' y2='32'/%3E%3Cline x1='48' y1='32' x2='60' y2='32'/%3E%3Cline x1='12' y1='12' x2='20' y2='20'/%3E%3Cline x1='44' y1='44' x2='52' y2='52'/%3E%3Cline x1='52' y1='12' x2='44' y2='20'/%3E%3Cline x1='20' y1='44' x2='12' y2='52'/%3E%3C/svg%3E"); }
+.somtaaw-section .hw-tree-section-icon--mothership { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64' fill='none' stroke='%2300d4aa' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolygon points='8,24 20,8 44,8 56,24 44,56 20,56'/%3E%3C/svg%3E"); }
+
+/* Turanic faction colored icons */
+.turanic-section .hw-tree-section-icon--fighter { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64' fill='none' stroke='%23d22828' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolygon points='32,8 56,56 8,56'/%3E%3C/svg%3E"); }
+.turanic-section .hw-tree-section-icon--corvette { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64' fill='none' stroke='%23d22828' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='16' y='16' width='32' height='32'/%3E%3C/svg%3E"); }
+.turanic-section .hw-tree-section-icon--frigate { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64' fill='none' stroke='%23d22828' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolygon points='32,8 56,32 32,56 8,32'/%3E%3C/svg%3E"); }
+.turanic-section .hw-tree-section-icon--capital { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64' fill='none' stroke='%23d22828' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolygon points='16,8 54,24 48,56 10,40'/%3E%3C/svg%3E"); }
+
+/* CCR faction colored icons */
+.ccr-section .hw-tree-section-icon--fighter { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64' fill='none' stroke='%23f7ed41' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolygon points='32,8 56,56 8,56'/%3E%3C/svg%3E"); }
+.ccr-section .hw-tree-section-icon--freighter { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64' fill='none' stroke='%23f7ed41' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M16 20H48L54 32L48 44H16L10 32Z'/%3E%3Cline x1='26' y1='20' x2='26' y2='44'/%3E%3Cline x1='38' y1='20' x2='38' y2='44'/%3E%3Crect x='29' y='26' width='6' height='12' rx='1'/%3E%3Cline x1='16' y1='32' x2='10' y2='32'/%3E%3Cline x1='48' y1='32' x2='54' y2='32'/%3E%3C/svg%3E"); }
+.ccr-section .hw-tree-section-icon--transport { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64' fill='none' stroke='%23f7ed41' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='14' y='18' width='36' height='28' rx='3'/%3E%3Cpath d='M14 28H8L6 32L8 36H14'/%3E%3Cpath d='M50 28H56L58 32L56 36H50'/%3E%3Cline x1='24' y1='18' x2='24' y2='46'/%3E%3Cline x1='40' y1='18' x2='40' y2='46'/%3E%3Crect x='28' y='26' width='8' height='10' rx='1'/%3E%3C/svg%3E"); }
+
+.hw-tree-section-title {
+  font-size: var(--text-sm);
+  color: var(--hw-blue);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+}
+
+.hw-tree-section-header.taiidan-section .hw-tree-section-title {
+  color: var(--hw-orange);
+}
+
+/* === SHIPS CONTAINER === */
+.hw-tree-ships {
+  display: flex;
+  gap: var(--space-4);
+}
+
+/* === SHIP COLUMNS (max 2 per col) === */
+.hw-tree-ship-col {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+/* === FACTION HEADER === */
+.hw-faction-header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-6);
+  padding: var(--space-8);
+  margin-bottom: var(--space-8);
+  background: var(--glass-bg);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid var(--glass-border);
+  position: relative;
+  overflow: hidden;
+  transition: var(--transition-smooth);
+}
+
+.hw-faction-header:hover {
+  border-color: rgba(var(--theme-base-rgb), 0.3);
+  box-shadow: var(--shadow-card);
+}
+
+.hw-faction-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: var(--hw-blue);
+}
+
+.taiidan-header::before {
+  background: var(--hw-orange);
+}
+
+.hw-faction-emblem {
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  background: linear-gradient(135deg, rgba(0, 191, 255, 0.2), rgba(0, 191, 255, 0.05));
+  border: 2px solid var(--hw-blue);
+  clip-path: polygon(20% 0%, 100% 0%, 100% 80%, 80% 100%, 0% 100%, 0% 20%);
+}
+
+.taiidan-emblem {
+  background: linear-gradient(135deg, rgba(255, 159, 28, 0.2), rgba(255, 159, 28, 0.05));
+  border-color: var(--hw-orange);
+}
+
+.hw-faction-info h2 {
+  font-size: var(--text-2xl);
+  color: var(--hw-blue);
+  margin-bottom: var(--space-2);
+  letter-spacing: 0.15em;
+}
+
+.taiidan-header .hw-faction-info h2 {
+  color: var(--hw-orange);
+}
+
+.hw-faction-info p {
+  font-size: var(--text-base);
+  color: var(--hw-text-dim);
+  max-width: 600px;
+}
+
+/* === SHIP CARD === */
+.hw-ship-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--glass-bg);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid var(--glass-border);
+  transition: var(--transition-smooth);
+  cursor: pointer;
+  position: relative;
+  width: 160px;
+}
+
+.hw-ship-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--hw-blue), var(--hw-blue-glow));
+  opacity: 0;
+  transition: var(--transition-smooth);
+}
+
+.hw-ship-card:hover {
+  border-color: var(--hw-blue);
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px rgba(0, 191, 255, 0.15), 0 0 15px rgba(0, 191, 255, 0.08);
+}
+
+.hw-ship-card:hover::before {
+  opacity: 1;
+}
+
+.hw-ship-card--disabled {
+  opacity: 0.45;
+  filter: grayscale(1);
+  cursor: not-allowed;
+}
+
+.hw-ship-card--disabled::before {
+  opacity: 0;
+}
+
+.hw-ship-card--disabled:hover {
+  border-color: var(--hw-border);
+  transform: none;
+  box-shadow: none;
+}
+
+.taiidan-card::before {
+  background: linear-gradient(90deg, var(--hw-orange), var(--hw-orange-glow));
+}
+
+.taiidan-card:hover {
+  border-color: var(--hw-orange);
+  box-shadow: 0 10px 30px rgba(255, 159, 28, 0.15);
+}
+
+/* === SHIP IMAGE === */
+.hw-ship-image {
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(180deg, rgba(0, 191, 255, 0.05) 0%, transparent 100%);
+  border-bottom: 1px solid var(--hw-border);
+  overflow: hidden;
+  padding: var(--space-2);
+}
+
+.taiidan-card .hw-ship-image {
+  background: linear-gradient(180deg, rgba(255, 159, 28, 0.05) 0%, transparent 100%);
+}
+
+.hw-ship-img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  opacity: 0.85;
+  transition: var(--transition-base);
+  filter: drop-shadow(0 0 4px rgba(0, 191, 255, 0.2));
+}
+
+.hw-ship-card:hover .hw-ship-img {
+  opacity: 1;
+  transform: scale(1.08);
+  filter: drop-shadow(0 0 8px rgba(0, 191, 255, 0.4));
+}
+
+.taiidan-card:hover .hw-ship-img {
+  filter: drop-shadow(0 0 8px rgba(255, 159, 28, 0.4));
+}
+
+.hw-ship-card--disabled .hw-ship-img {
+  opacity: 0.45;
+  filter: grayscale(0.3) drop-shadow(0 0 2px rgba(0, 191, 255, 0.1));
+}
+
+.hw-ship-placeholder {
+  font-size: 1.8rem;
+  opacity: 0.7;
+  transition: var(--transition-base);
+}
+
+.hw-ship-card:hover .hw-ship-placeholder {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+/* === SHIP INFO === */
+.hw-ship-info {
+  padding: var(--space-2);
+}
+
+.hw-ship-name {
+  font-size: var(--text-xs);
+  color: var(--hw-text);
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: var(--space-1);
+  letter-spacing: 0.05em;
+}
+
+.hw-ship-class {
+  font-size: 0.65rem;
+  color: var(--hw-blue);
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  display: block;
+}
+
+.hw-ship-note {
+  display: block;
+  margin-top: 2px;
+  font-size: 0.55rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  text-align: center;
+  color: var(--hw-text-dim);
+}
+
+.taiidan-card .hw-ship-class {
+  color: var(--hw-orange);
+}
+
+/* === SHIP MODAL === */
+.hw-ship-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(5, 5, 10, 0.95);
+  z-index: 9999;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-6);
+  backdrop-filter: blur(10px);
+}
+
+.hw-ship-modal.active {
+  display: flex;
+}
+
+.hw-ship-modal-content {
+  max-width: 700px;
+  width: 100%;
+  background: var(--hw-dark-panel);
+  border: 1px solid var(--hw-border);
+  position: relative;
+}
+
+.hw-ship-modal-close {
+  position: absolute;
+  top: var(--space-4);
+  right: var(--space-4);
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: 1px solid var(--hw-border);
+  color: var(--hw-text-dim);
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: var(--transition-base);
+  z-index: 10;
+}
+
+.hw-ship-modal-close:hover {
+  border-color: var(--hw-orange);
+  color: var(--hw-orange);
+}
+
+.hw-ship-modal-body {
+  display: flex;
+  gap: var(--space-6);
+  padding: var(--space-6);
+}
+
+.hw-ship-modal-image {
+  flex: 0 0 180px;
+  height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--hw-dark-card);
+  border: 1px solid var(--hw-border);
+}
+
+.hw-ship-modal-icon {
+  font-size: 4rem;
+  opacity: 0.8;
+}
+
+.hw-ship-modal-info {
+  flex: 1;
+}
+
+.hw-ship-modal-title {
+  font-size: var(--text-2xl);
+  margin-bottom: var(--space-1);
+}
+
+.hw-ship-modal-class {
+  font-size: var(--text-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  display: block;
+  margin-bottom: var(--space-3);
+}
+
+.hw-ship-modal-desc {
+  font-size: var(--text-base);
+  color: var(--hw-text-dim);
+  line-height: 1.6;
+  margin-bottom: var(--space-4);
+}
+
+.hw-ship-modal-stats {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.hw-modal-stat {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.hw-modal-stat span:first-child {
+  width: 80px;
+  font-size: var(--text-sm);
+  color: var(--hw-text-dim);
+  text-transform: uppercase;
+}
+
+.hw-modal-stat-bar {
+  flex: 1;
+  height: 8px;
+  background: rgba(255,255,255,0.1);
+}
+
+.hw-modal-stat-bar span {
+  height: 100%;
+  display: block;
+  transition: width 0.5s ease;
+}
+
+.hw-modal-stat-value {
+  width: 50px;
+  text-align: right;
+  font-size: var(--text-sm);
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 1024px) {
+  .hw-tree-section {
+    margin-right: var(--space-10);
+  }
+  
+  .hw-ship-card {
+    width: 140px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hw-tree-container {
+    flex-direction: column;
+    gap: var(--space-8);
+    align-items: center;
+    min-height: auto;
+    padding-left: var(--space-4);
+  }
+  
+  .hw-tree-row {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .hw-tree-row-utility {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+  
+  .hw-fleet-bracket {
+    position: relative;
+    width: 100%;
+    height: auto;
+    padding: var(--space-4) 0;
+    border-bottom: 1px solid var(--hw-border);
+  }
+  
+  .hw-fleet-bracket-inner {
+    height: auto;
+  }
+  
+  .hw-fleet-bracket-inner::before,
+  .hw-fleet-bracket-inner::after,
+  .hw-fleet-bracket-bottom {
+    display: none;
+  }
+  
+  .hw-fleet-name {
+    position: relative;
+    transform: none;
+    left: auto;
+    top: auto;
+  }
+  
+  .hw-tree-connector {
+    display: none;
+  }
+  
+  .hw-tree-section {
+    margin-right: 0;
+    margin-bottom: var(--space-2);
+  }
+  
+  .hw-tree-section:last-child {
+    margin-bottom: 0;
+  }
+  
+  .hw-tree-ships {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .hw-tree-ship-col {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+/* === SOMTAAW THEME === */
+.somtaaw-bracket .hw-fleet-bracket-inner::before,
+.somtaaw-bracket .hw-fleet-bracket-inner::after,
+.somtaaw-bracket .hw-fleet-bracket-bottom {
+  background: var(--hw-somtaaw);
+  box-shadow: 0 0 8px var(--hw-somtaaw-glow);
+}
+
+.somtaaw-bracket .hw-fleet-name {
+  color: var(--hw-somtaaw);
+  text-shadow: 0 0 10px var(--hw-somtaaw-glow);
+}
+
+.hw-tree-section-header.somtaaw-section {
+  border-bottom-color: var(--hw-somtaaw);
+}
+
+.hw-tree-section-header.somtaaw-section::after {
+  background: var(--hw-somtaaw);
+}
+
+.hw-tree-section-header.somtaaw-section .hw-tree-section-title {
+  color: var(--hw-somtaaw);
+}
+
+.somtaaw-card::before {
+  background: linear-gradient(90deg, var(--hw-somtaaw), var(--hw-somtaaw-glow));
+}
+
+.somtaaw-card:hover {
+  border-color: var(--hw-somtaaw);
+  box-shadow: 0 10px 30px rgba(0, 212, 170, 0.15);
+}
+
+.somtaaw-card .hw-ship-image {
+  background: linear-gradient(180deg, rgba(0, 212, 170, 0.05) 0%, transparent 100%);
+}
+
+.somtaaw-card .hw-ship-img {
+  filter: drop-shadow(0 0 4px rgba(0, 212, 170, 0.2));
+}
+
+.somtaaw-card:hover .hw-ship-img {
+  filter: drop-shadow(0 0 8px rgba(0, 212, 170, 0.4));
+}
+
+.somtaaw-card .hw-ship-class {
+  color: var(--hw-somtaaw);
+}
+
+.somtaaw-header::before {
+  background: var(--hw-somtaaw);
+}
+
+.somtaaw-header .hw-faction-info h2 {
+  color: var(--hw-somtaaw);
+}
+
+.somtaaw-emblem {
+  background: linear-gradient(135deg, rgba(0, 212, 170, 0.2), rgba(0, 212, 170, 0.05));
+  border-color: var(--hw-somtaaw);
+}
+
+.hw-tab[data-faction="somtaaw"].active {
+  color: var(--hw-somtaaw);
+  border-color: var(--hw-somtaaw);
+  background: rgba(0, 212, 170, 0.1);
+  box-shadow: 0 0 15px var(--hw-somtaaw-glow);
+}
+
+/* === RED DIVIDER (vertical, inline within flex row) === */
+.hw-red-divider {
+  width: 2px;
+  align-self: stretch;
+  min-height: 120px;
+  flex-shrink: 0;
+  background: linear-gradient(180deg, transparent, rgba(210, 40, 40, 0.7), #D22828, rgba(210, 40, 40, 0.7), transparent);
+  margin: 0 var(--space-8);
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.hw-red-divider .hw-divider-label {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%) rotate(180deg);
+  writing-mode: vertical-rl;
+  font-size: 0.65rem;
+  color: #D22828;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-shadow: 0 0 4px rgba(210, 40, 40, 0.7);
+    right: 15%;
+}
+
+.hw-red-divider::before,
+.hw-red-divider::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 8px;
+  height: 8px;
+  background: #D22828;
+  border-radius: 50%;
+  box-shadow: 0 0 6px rgba(210, 40, 40, 0.8);
+}
+
+.hw-red-divider::before { top: 0; }
+.hw-red-divider::after  { bottom: 0; top: auto; }
+
+/* === RED-ACCENT CARD (enabled ship inside future section) === */
+.hw-ship-card--red-accent {
+  border-color: rgba(210, 40, 40, 0.65);
+}
+
+.hw-ship-card--red-accent::before {
+  background: linear-gradient(90deg, rgba(210, 40, 40, 0.8), rgba(210, 40, 40, 0.3));
+  opacity: 1;
+}
+
+.hw-ship-card--red-accent:hover {
+  border-color: #D22828;
+  box-shadow: 0 10px 30px rgba(210, 40, 40, 0.2);
+  transform: translateY(-3px);
+}
+
+/* === TURANIC THEME === */
+.turanic-bracket .hw-fleet-bracket-inner::before,
+.turanic-bracket .hw-fleet-bracket-inner::after,
+.turanic-bracket .hw-fleet-bracket-bottom {
+  background: var(--hw-turanic);
+  box-shadow: 0 0 8px var(--hw-turanic-glow);
+}
+
+.turanic-bracket .hw-fleet-name {
+  color: var(--hw-turanic);
+  text-shadow: 0 0 10px var(--hw-turanic-glow);
+}
+
+.hw-tree-section-header.turanic-section {
+  border-bottom-color: var(--hw-turanic);
+}
+
+.hw-tree-section-header.turanic-section::after {
+  background: var(--hw-turanic);
+}
+
+.hw-tree-section-header.turanic-section .hw-tree-section-title {
+  color: var(--hw-turanic);
+}
+
+.turanic-card::before {
+  background: linear-gradient(90deg, var(--hw-turanic), var(--hw-turanic-glow));
+}
+
+.turanic-card:hover {
+  border-color: var(--hw-turanic);
+  box-shadow: 0 10px 30px rgba(210, 40, 40, 0.15);
+}
+
+.turanic-card .hw-ship-image {
+  background: linear-gradient(180deg, rgba(210, 40, 40, 0.05) 0%, transparent 100%);
+}
+
+.turanic-card .hw-ship-img {
+  filter: drop-shadow(0 0 4px rgba(210, 40, 40, 0.2));
+}
+
+.turanic-card:hover .hw-ship-img {
+  filter: drop-shadow(0 0 8px rgba(210, 40, 40, 0.4));
+}
+
+.turanic-card .hw-ship-class {
+  color: var(--hw-turanic);
+}
+
+.turanic-header::before {
+  background: var(--hw-turanic);
+}
+
+.turanic-header .hw-faction-info h2 {
+  color: var(--hw-turanic);
+}
+
+.turanic-emblem {
+  background: linear-gradient(135deg, rgba(210, 40, 40, 0.2), rgba(210, 40, 40, 0.05));
+  border-color: var(--hw-turanic);
+}
+
+.hw-tab[data-faction="turanic"].active {
+  color: var(--hw-turanic);
+  border-color: var(--hw-turanic);
+  background: rgba(210, 40, 40, 0.1);
+  box-shadow: 0 0 15px var(--hw-turanic-glow);
+}
+
+/* === CCR THEME === */
+.ccr-bracket .hw-fleet-bracket-inner::before,
+.ccr-bracket .hw-fleet-bracket-inner::after,
+.ccr-bracket .hw-fleet-bracket-bottom {
+  background: var(--hw-ccr);
+  box-shadow: 0 0 8px var(--hw-ccr-glow);
+}
+
+.ccr-bracket .hw-fleet-name {
+  color: var(--hw-ccr);
+  text-shadow: 0 0 10px var(--hw-ccr-glow);
+}
+
+.hw-tree-section-header.ccr-section {
+  border-bottom-color: var(--hw-ccr);
+}
+
+.hw-tree-section-header.ccr-section::after {
+  background: var(--hw-ccr);
+}
+
+.hw-tree-section-header.ccr-section .hw-tree-section-title {
+  color: var(--hw-ccr);
+}
+
+.ccr-card::before {
+  background: linear-gradient(90deg, var(--hw-ccr), var(--hw-ccr-glow));
+}
+
+.ccr-card:hover {
+  border-color: var(--hw-ccr);
+  box-shadow: 0 10px 30px rgba(247, 237, 65, 0.15);
+}
+
+.ccr-card .hw-ship-image {
+  background: linear-gradient(180deg, rgba(247, 237, 65, 0.05) 0%, transparent 100%);
+}
+
+.ccr-card .hw-ship-img {
+  filter: drop-shadow(0 0 4px rgba(247, 237, 65, 0.2));
+}
+
+.ccr-card:hover .hw-ship-img {
+  filter: drop-shadow(0 0 8px rgba(247, 237, 65, 0.4));
+}
+
+.ccr-card .hw-ship-class {
+  color: var(--hw-ccr);
+}
+
+.ccr-header::before {
+  background: var(--hw-ccr);
+}
+
+.ccr-header .hw-faction-info h2 {
+  color: var(--hw-ccr);
+}
+
+.ccr-emblem {
+  background: linear-gradient(135deg, rgba(247, 237, 65, 0.2), rgba(247, 237, 65, 0.05));
+  border-color: var(--hw-ccr);
+}
+
+.hw-tab[data-faction="ccr"].active {
+  color: var(--hw-ccr);
+  border-color: var(--hw-ccr);
+  background: rgba(247, 237, 65, 0.1);
+  box-shadow: 0 0 15px var(--hw-ccr-glow);
+}
+
+.btn {
+  background-color: var(--hw-secondary);
+  color: white;
+}
+
+/* =========================================
+   FACTION LOGO BACKGROUNDS
+   Placed behind all ship tree content
+   ========================================= */
+
+/* Base pseudo-element: positioned, masked, invisible until
+   a faction-specific rule provides background-image */
+.hw-tree-container::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;            /* behind all flex children, within isolation context */
+  pointer-events: none;
+  background-size: auto 75%;
+  background-position: center center;
+  background-repeat: no-repeat;
+  filter: blur(1.5px);
+  /* Top half: 50% opacity.  Bottom half: fades to fully transparent */
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    rgba(0,0,0,0.5)  0%,
+    rgba(0,0,0,0.5) 45%,
+    rgba(0,0,0,0)  100%
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    rgba(0,0,0,0.5)  0%,
+    rgba(0,0,0,0.5) 45%,
+    rgba(0,0,0,0)  100%
+  );
+}
+
+#kushan .hw-tree-container::before {
+  background-image: url('../assets/hwa-news-logo.png');
+}
+
+#taiidan .hw-tree-container::before {
+  background-image: url('../assets/Taiidan_insignia_(white).webp');
+}
+
+#somtaaw .hw-tree-container::before {
+  background-image: url('../assets/Kiith_Somtaaw_preBeast.webp');
+}
+
+#turanic .hw-tree-container::before {
+  background-image: url('../assets/Turanic.webp');
+}
