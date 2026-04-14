@@ -1,40 +1,29 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Homeworld Rise of Hiigara - A total conversion mod bringing the epic space warfare of Homeworld to Freelancer. Explore 50+ ships, 20+ factions, and stunning graphics.">
-  <meta name="theme-color" content="#0A0A12">
+  <meta name="theme-color" content="#0f131f">
   <meta name="keywords" content="Homeworld, mod, Freelancer, space, game, conversion">
   <meta name="author" content="Rise of Hiigara Team">
-  
-  <!-- Open Graph for social media -->
   <meta property="og:title" content="Homeworld Rise of Hiigara | Epic Space Mod">
   <meta property="og:description" content="Experience Homeworld in Freelancer with 50+ ships, advanced graphics, and immersive gameplay.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://roh.example.com">
   <meta property="og:image" content="https://media.moddb.com/cache/images/mods/1/65/64048/thumb_620x2000/Screenshot_from_2026-02-04_23-21-55.png">
   <meta property="og:site_name" content="Rise of Hiigara">
-  
-  <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Homeworld Rise of Hiigara">
   <meta name="twitter:description" content="Epic space mod bringing Homeworld to Freelancer">
   <meta name="twitter:image" content="https://media.moddb.com/cache/images/mods/1/65/64048/thumb_620x2000/Screenshot_from_2026-02-04_23-21-55.png">
-  
   <title>Homeworld Rise of Hiigara | Official Mod</title>
-  
   <link rel="canonical" href="https://roh.example.com">
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>">
-  
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#x1F680;</text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="dns-prefetch" href="https://media.moddb.com">
-  
-  <link rel="stylesheet" href="css/variables.css">
   <link rel="stylesheet" href="css/styles.css">
-  
-  <!-- Structured Data (JSON-LD) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -44,16 +33,8 @@
     "url": "https://roh.example.com",
     "applicationCategory": "GameApplication",
     "operatingSystem": "Windows",
-    "author": {
-      "@type": "Organization",
-      "name": "Rise of Hiigara Team"
-    },
-    "offers": {
-      "@type": "Offer",
-      "price": "0",
-      "priceCurrency": "USD",
-      "category": "Free"
-    }
+    "author": { "@type": "Organization", "name": "Rise of Hiigara Team" },
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD", "category": "Free" }
   }
   </script>
 </head>
@@ -61,295 +42,405 @@
   <!-- Background -->
   <div class="hw-bg" aria-hidden="true"></div>
   <div class="hw-stars" aria-hidden="true"></div>
-  
-  <!-- Skip to content link for keyboard navigation -->
+
+  <!-- Skip to content -->
   <a href="#main-content" class="hw-skip-link">Skip to main content</a>
-  
+
   <!-- Header Navigation -->
   <header>
     <nav class="hw-nav" role="navigation" aria-label="Main navigation">
-    <div class="hw-nav-container">
-      <a href="#home" class="hw-nav-logo" aria-current="page">
-        <div class="hw-nav-logo-icon">
-          <img src="assets/roh-icon.webp" alt="Rise of Hiigara logo" class="hw-roh-icon" width="40" height="40">
-        </div>
-        <span>Rise of Hiigara</span>
-      </a>
-      
-      <ul class="hw-nav-links" role="menubar">
-        <li role="none"><a href="#home" class="hw-nav-link active" role="menuitem">Home</a></li>
-        <li role="none"><a href="#features" class="hw-nav-link" role="menuitem">Features</a></li>
-        <li role="none"><a href="#gallery" class="hw-nav-link" role="menuitem">Gallery</a></li>
-        <li role="none"><a href="#download" class="hw-nav-link" role="menuitem">Download</a></li>
-        <li role="none"><a href="#community" class="hw-nav-link" role="menuitem">Community</a></li>
-        <li role="none">
-          <div class="hw-theme-selector">
-            <label for="faction-select" class="hw-theme-label">Faction theme:</label>
-            <div class="hw-select-wrapper">
-              <select id="faction-select" class="hw-faction-select" aria-label="Select faction theme color">
-                <option value="default">Choose Faction</option>
-                <optgroup label="like my Homeworld just got blown up">
-                  <option value="kushan" data-base="#8E9FA1" data-secondary="#FFFFFF">Kushan</option>
-                  <option value="taiidan" data-base="#FFD106" data-secondary="#ED2024">Taiidan</option>
-                  <option value="imperial-elite" data-base="#000000" data-secondary="#FFFFFF">Imperial Elite</option>
-                  <option value="turanic" data-base="#F7ED41" data-secondary="#D2D2C8">Turanic (P1)</option>
-                </optgroup>
-                <optgroup label="like having fear for space zombies">
-                  <option value="somtaaw" data-base="#496BB3" data-secondary="#FFFFFF">Somtaaw</option>
-                  <option value="beast" data-base="#968081" data-secondary="#C72026">Beast</option>
-                  <option value="imperial-somtaaw" data-base="#FBEC24" data-secondary="#AB2E24">Imperial</option>
-                  <option value="republic" data-base="#FFFFFF" data-secondary="#008080">Republic</option>
-                  <option value="pirates" data-base="#F47F45" data-secondary="#F6EB13">Pirates</option>
-                  <option value="nabaal" data-base="#E3AD52" data-secondary="#976F2A">Nabaal</option>
-                  <option value="sjet" data-base="#C72026" data-secondary="#3953A4">S'Jet</option>
-                  <option value="manaan" data-base="#399745" data-secondary="#B8D661">Manaan</option>
-                </optgroup>
-                <optgroup label="like being invaded by space vikings">
-                  <option value="hiigaran" data-base="#5D8DAA" data-secondary="#CCCCCC" selected>Hiigaran</option>
-                  <option value="vaygr" data-base="#E5E5E5" data-secondary="#191919">Vaygr</option>
-                  <option value="elite-vaygr" data-base="#0C0C0C" data-secondary="#8F000B">Elite Vaygr</option>
-                  <option value="soban" data-base="#000000" data-secondary="#FF0000">Soban</option>
-                  <option value="progenitor" data-base="#94A494" data-secondary="#8F2A2A">Progenitor Hull</option>
-                </optgroup>
-                <optgroup label="de-throne a wanna-be progenitor queen">
-                  <option value="hiigaran" data-base="#5D8DAA" data-secondary="#CCCCCC" selected>Hiigaran</option>
-                  <option value="kalan-raiders" data-base="#ffcd78" data-secondary="#4f1606">Kalan Raiders</option>
-                  <option value="incarnate" data-base="#000000" data-secondary="#FF0000">Incarnate</option>
-                </optgroup>
-              </select>
-            </div>
+      <div class="hw-nav-container">
+        <a href="#home" class="hw-nav-logo" aria-current="page">
+          <div class="hw-nav-logo-icon">
+            <img src="assets/roh-icon.webp" alt="Rise of Hiigara logo" class="hw-roh-icon" width="32" height="32">
           </div>
-        </li>
-      </ul>
-      
-      <button class="hw-nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-    </div>
-  </nav>
+          <span>Rise of Hiigara</span>
+        </a>
+
+        <ul class="hw-nav-links" role="menubar">
+          <li role="none"><a href="#features" class="hw-nav-link active" role="menuitem">Features</a></li>
+          <li role="none"><a href="#factions" class="hw-nav-link" role="menuitem">Factions</a></li>
+          <li role="none"><a href="#gallery" class="hw-nav-link" role="menuitem">Gallery</a></li>
+          <li role="none"><a href="#news" class="hw-nav-link" role="menuitem">News</a></li>
+          <li role="none"><a href="#download" class="hw-nav-link" role="menuitem">Download</a></li>
+          <li role="none">
+            <div class="hw-theme-selector">
+              <label for="faction-select" class="hw-theme-label">Faction:</label>
+              <div class="hw-select-wrapper">
+                <select id="faction-select" class="hw-faction-select" aria-label="Select faction theme color">
+                  <option value="default">Choose Faction</option>
+                  <optgroup label="like my Homeworld just got blown up">
+                    <option value="kushan" data-base="#8E9FA1" data-secondary="#FFFFFF">Kushan</option>
+                    <option value="taiidan" data-base="#FFD106" data-secondary="#ED2024">Taiidan</option>
+                    <option value="imperial-elite" data-base="#000000" data-secondary="#FFFFFF">Imperial Elite</option>
+                    <option value="turanic" data-base="#F7ED41" data-secondary="#D2D2C8">Turanic (P1)</option>
+                  </optgroup>
+                  <optgroup label="like having fear for space zombies">
+                    <option value="somtaaw" data-base="#496BB3" data-secondary="#FFFFFF">Somtaaw</option>
+                    <option value="beast" data-base="#968081" data-secondary="#C72026">Beast</option>
+                    <option value="imperial-somtaaw" data-base="#FBEC24" data-secondary="#AB2E24">Imperial</option>
+                    <option value="republic" data-base="#FFFFFF" data-secondary="#008080">Republic</option>
+                    <option value="pirates" data-base="#F47F45" data-secondary="#F6EB13">Pirates</option>
+                    <option value="nabaal" data-base="#E3AD52" data-secondary="#976F2A">Nabaal</option>
+                    <option value="sjet" data-base="#C72026" data-secondary="#3953A4">S'Jet</option>
+                    <option value="manaan" data-base="#399745" data-secondary="#B8D661">Manaan</option>
+                  </optgroup>
+                  <optgroup label="like being invaded by space vikings">
+                    <option value="hiigaran" data-base="#5D8DAA" data-secondary="#CCCCCC" selected>Hiigaran</option>
+                    <option value="vaygr" data-base="#E5E5E5" data-secondary="#191919">Vaygr</option>
+                    <option value="elite-vaygr" data-base="#0C0C0C" data-secondary="#8F000B">Elite Vaygr</option>
+                    <option value="soban" data-base="#000000" data-secondary="#FF0000">Soban</option>
+                    <option value="progenitor" data-base="#94A494" data-secondary="#8F2A2A">Progenitor Hull</option>
+                  </optgroup>
+                  <optgroup label="de-throne a wanna-be progenitor queen">
+                    <option value="hiigaran" data-base="#5D8DAA" data-secondary="#CCCCCC">Hiigaran</option>
+                    <option value="kalan-raiders" data-base="#ffcd78" data-secondary="#4f1606">Kalan Raiders</option>
+                    <option value="incarnate" data-base="#000000" data-secondary="#FF0000">Incarnate</option>
+                  </optgroup>
+                </select>
+              </div>
+            </div>
+          </li>
+        </ul>
+
+        <div class="hw-nav-actions">
+          <a href="#download" class="hw-nav-cta">Download</a>
+        </div>
+
+        <button class="hw-nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
   </header>
-  
+
   <!-- Main Content -->
   <main id="main-content">
-  <!-- Hero Section -->
-  <section id="home" class="hw-hero" role="region" aria-label="Hero section">
-    <div class="hw-hero-content">
-      <h1 class="hw-hero-title">
-        <span>Rise of</span>
-        HIIGARA
-      </h1>
-      
-      <p class="hw-hero-subtitle">
-        A total conversion mod for Freelancer
-      </p>
-      
-      <div class="hw-hero-buttons">
-        <a href="#download" class="hw-btn hw-btn-lg">
-          ▼ Download Mod
-        </a>
-        <a href="#features" class="hw-btn hw-btn-blue hw-btn-lg">
-          ◆ Explore
-        </a>
+
+    <!-- ====== HERO: Full-bleed cinematic ====== -->
+    <section id="home" class="hw-hero" role="region" aria-label="Hero section">
+      <div class="hw-hero-bg">
+        <img src="https://media.moddb.com/cache/images/mods/1/65/64048/thumb_620x2000/Screenshot_from_2026-02-04_23-21-55.png" alt="" aria-hidden="true" class="hw-hero-bg-img">
+        <div class="hw-hero-gradient"></div>
       </div>
-    </div>
-    
-    <div class="hw-hero-scroll">
-      <span>▼ Scroll</span>
-    </div>
-  </section>
-  
-  <!-- Features Section -->
-  <section id="features" class="hw-section" role="region" aria-label="Features section">
-    <div class="container">
-      <div class="hw-section-header">
-        <h2 class="hw-section-title">Features</h2>
+      <!-- Angular HUD bracket decorations -->
+      <div class="hw-hero-brackets" aria-hidden="true">
+        <span class="bracket bracket-tl"></span>
+        <span class="bracket bracket-tr"></span>
+        <span class="bracket bracket-bl"></span>
+        <span class="bracket bracket-br"></span>
       </div>
-      
-      <div class="hw-features">
-        <a href="ship-classes.html" class="hw-feature hw-feature-link">
-          <div class="hw-feature-icon">🚀</div>
-          <h3 class="hw-feature-title">Homeworld shipset</h3>
-          <p>Ships from the Kushan, Kiiths, Taiidan, and more.</p>
-          <span class="hw-feature-cta">View Ship Trees →</span>
-        </a>
-        
-        <div class="hw-feature">
-          <div class="hw-feature-icon">🏳️</div>
-          <h3 class="hw-feature-title">Factions</h3>
-          <p>Play as the Kiiths, the Taiidan, the CCR, the Republic, the Turanic Raiders, and a lot more factions you can uncover.</p>
-        </div>
-
-        <div class="hw-feature">
-          <div class="hw-feature-icon">🎨</div>
-          <h3 class="hw-feature-title">Enhanced Graphics</h3>
-          <p>With Schmackbolzen Freelancer Advanced Renderer, we have a new light engine, advanced shadows, starsphere color reflections and normal maps.</p>
-        </div>
-        
-        <div class="hw-feature">
-          <div class="hw-feature-icon">🎮</div>
-          <h3 class="hw-feature-title">Enhanced Gameplay</h3>
-          <p>Mining ships able to mine asteroids they only can destroy, and under development: Hacking into structures, 3d Navmap, advanced zones.</p>
-        </div>
-  
-      
-      </div>
-    </div>
-  </section>
-  
-  <!-- Gallery Section -->
-  <section id="gallery" class="hw-section" role="region" aria-label="Gallery section">
-    <div class="container">
-      <div class="hw-section-header">
-        <h2 class="hw-section-title">Gallery</h2>
-      </div>
-      
-      <div class="hw-gallery">
-        <div class="hw-gallery-item">
-          <img src="https://media.moddb.com/cache/images/mods/1/65/64048/thumb_620x2000/Screenshot_from_2026-02-04_23-21-55.png" alt="Taiidan Gas Miner">
-          <div class="hw-gallery-overlay">Taiidan Gas Miner</div>
-        </div>
-
-        <div class="hw-gallery-item">
-          <img src="https://media.moddb.com/cache/images/mods/1/65/64048/thumb_620x2000/1000129075.png" alt="Superacolyte remake">
-          <div class="hw-gallery-overlay">Superacolyte Remake</div>
-        </div>
-
-        <div class="hw-gallery-item">
-          <img src="https://media.moddb.com/cache/images/mods/1/65/64048/thumb_620x2000/48CDBF9A-3BE2-435B-9A79-3D8DB6770736.png" alt="Fornax - Binary star">
-          <div class="hw-gallery-overlay">Fornax — Binary Star</div>
-        </div>
-
-        <div class="hw-gallery-item">
-          <img src="https://media.moddb.com/cache/images/mods/1/65/64048/thumb_620x2000/1000125950.png" alt="Zureth Dockyard">
-          <div class="hw-gallery-overlay">Zureth Dockyard</div>
-        </div>
-
-        <div class="hw-gallery-item">
-          <img src="https://media.moddb.com/cache/images/mods/1/65/64048/thumb_620x2000/1000112979.png" alt="Tanis">
-          <div class="hw-gallery-overlay">Tanis</div>
-        </div>
-
-        <div class="hw-gallery-item">
-          <img src="https://media.moddb.com/cache/images/mods/1/65/64048/thumb_620x2000/SPOILER_image.png" alt="WIP Kaarsuun Veil">
-          <div class="hw-gallery-overlay">WIP Kaarsuun Veil</div>
-        </div>
-
-        <div class="hw-gallery-item">
-          <img src="https://media.moddb.com/cache/images/mods/1/65/64048/thumb_620x2000/Captura_de_pantalla_2025-03-20_022839.png" alt="Taiidan Republic">
-          <div class="hw-gallery-overlay">Taiidan Republic</div>
-        </div>
-
-        <div class="hw-gallery-item">
-          <img src="https://media.moddb.com/cache/images/mods/1/65/64048/thumb_620x2000/Captura_de_pantalla_2025-03-13_125515.png" alt="Orvash">
-          <div class="hw-gallery-overlay">Orvash</div>
+      <div class="hw-hero-content">
+        <span class="hw-hero-label">A Freelancer Total Conversion</span>
+        <h1 class="hw-hero-title">
+          Rise of <span class="accent">Hiigara</span>
+        </h1>
+        <p class="hw-hero-subtitle">
+          Reclaim the stars. Experience the legendary Homeworld universe reimagined within the Freelancer engine.
+        </p>
+        <div class="hw-hero-buttons">
+          <a href="#download" class="hw-btn hw-btn-primary hw-btn-lg">Download Mod</a>
+          <a href="#features" class="hw-btn hw-btn-outline hw-btn-lg">Explore</a>
         </div>
       </div>
-    </div>
-  </section>
-  
-  <!-- Download Section -->
-  <section id="download" class="hw-section" role="region" aria-label="Download section">
-    <div class="container">
-      <div class="hw-section-header">
-        <h2 class="hw-section-title">Download</h2>
+      <div class="hw-hero-scroll">
+        <span>&#x25BC;</span>
       </div>
-      
-      <div class="hw-downloads">
-        <div class="hw-download-card">
-          <div class="hw-download-icon">▼</div>
-          <div class="hw-download-info">
-            <h4 class="hw-download-title">Full Mod</h4>
-            <span class="hw-download-meta">Version 0.61 | Latest Release</span>
+    </section>
+
+    <!-- ====== FEATURES: System Core Capabilities ====== -->
+    <section id="features" class="hw-section" role="region" aria-label="Features section">
+      <div class="container">
+        <div class="hw-section-header">
+          <h2 class="hw-section-title">System Core <span class="accent">Capabilities</span></h2>
+          <span class="hw-section-tag">[ Data_Stream: Active ]</span>
+        </div>
+
+        <div class="hw-features">
+          <a href="ship-classes.html" class="hw-feature hw-feature-link">
+            <div class="hw-feature-icon">&#x1F680;</div>
+            <h3 class="hw-feature-title">Homeworld Shipset</h3>
+            <p>Exact replicas of Kushan, Taiidan, and Vaygr hulls with custom hardpoints and stats.</p>
+            <div class="hw-feature-status hw-feature-status--ready"><span class="pip"></span> System_Ready</div>
+          </a>
+          <div class="hw-feature">
+            <div class="hw-feature-icon">&#x26F0;&#xFE0F;</div>
+            <h3 class="hw-feature-title">Factions (15+)</h3>
+            <p>Experience a living galaxy with 15+ factions, each with unique lore and dynamic reputations.</p>
+            <div class="hw-feature-status hw-feature-status--active"><span class="pip"></span> Sectors_Mapped</div>
           </div>
-          <span class="hw-download-size">4.2 GB</span>
-          <a href="https://www.moddb.com/mods/homeworld-rise-of-hiigara/downloads" target="_blank" class="hw-btn">Download</a>
+          <div class="hw-feature">
+            <div class="hw-feature-icon">&#x1F441;&#xFE0F;</div>
+            <h3 class="hw-feature-title">Enhanced Graphics</h3>
+            <p>High resolution textures, bloom shaders, and improved engine lighting for space combat.</p>
+            <div class="hw-feature-status hw-feature-status--ready"><span class="pip"></span> Visual_Optimized</div>
+          </div>
+          <div class="hw-feature">
+            <div class="hw-feature-icon">&#x1F3AE;</div>
+            <h3 class="hw-feature-title">Enhanced Gameplay</h3>
+            <p>Revamped economy, weapon balancing, and challenging AI maneuvers for veteran pilots.</p>
+            <div class="hw-feature-status hw-feature-status--active"><span class="pip"></span> Logic_Enhanced</div>
+          </div>
         </div>
       </div>
-      
-      <p class="hw-requirements">
-        Requires Freelancer (2003)<br>
-        Minimum: 8GB RAM, DirectX 11 GPU
-      </p>
-    </div>
-  </section>
-  
-  <!-- Community Section -->
-  <section id="community" class="hw-section" role="region" aria-label="Community section">
-    <div class="container">
-      <div class="hw-section-header">
-        <h2 class="hw-section-title">Community</h2>
-      </div>
-      
-      <div class="hw-stats">
-        <div class="hw-stat">
-          <div class="hw-stat-value">600+</div>
-          <div class="hw-stat-label">Downloads</div>
-        </div>
-        
-        <div class="hw-stat">
-          <div class="hw-stat-value">60+</div>
-          <div class="hw-stat-label">Members</div>
-        </div>
-        
-        <div class="hw-stat">
-          <div class="hw-stat-value">8.3/10</div>
-          <div class="hw-stat-label">Mod Rating</div>
-        </div>
-      </div>
-      
-      <div class="hw-community-grid">
-        <div class="hw-panel hw-community-panel">
-          <h4 class="hw-community-heading">Latest News</h4>
-          <ul class="hw-news-list">
-            <li>
-              <a href="https://www.moddb.com/mods/homeworld-rise-of-hiigara/news/21st-regulancer-homeworld-rise-of-hiigara-showcase-insights" target="_blank" class="hw-news-link">
-                <span>[21st REGULANCER] Homeworld Rise of Hiigara Showcase &amp; Insights</span>
-                <span class="text-dim">28 Sep 2025</span>
-              </a>
-            </li>
+    </section>
 
-            <li>
-              <a href="https://www.moddb.com/mods/homeworld-rise-of-hiigara/news/rise-of-hiigara-v06-the-northern-midring" target="_blank" class="hw-news-link">
-                <span>Rise of Hiigara V0.6 — The Northern Midring</span>
-                <span class="text-dim">22 Aug 2025</span>
-              </a>
-            </li>
-
-            <li>
-              <a href="https://www.moddb.com/mods/homeworld-rise-of-hiigara/news/homeworld-rise-of-hiigara-release-v051" target="_blank" class="hw-news-link">
-                <span>Homeworld Rise of Hiigara Release v0.51</span>
-                <span class="text-dim">02 Mar 2025</span>
-              </a>
-            </li>
-          </ul>
-        </div>
-        
-        <div class="hw-panel hw-community-panel hw-discord-panel">
-          <h4 class="hw-community-heading">Discord</h4>
-          <p class="hw-discord-desc">Join us!</p>
-          <a href="https://discord.gg/rFQ9Yb9eJe" class="hw-btn hw-discord-btn">◆ Join Discord</a>
+    <!-- ====== FACTIONS: Choose Your Allegiance ====== -->
+    <section id="factions" class="hw-section hw-section--elevated" role="region" aria-label="Factions section">
+      <div class="container">
+        <div class="hw-factions">
+          <div class="hw-factions-info">
+            <h2>Choose Your<br><span class="accent">Allegiance</span></h2>
+            <p>The Council of Hiigara demands your decision. Each faction brings unique modular tech and distinct tactical advantages to the field.</p>
+            <ul class="hw-faction-list" id="faction-list">
+              <li class="hw-faction-item active" data-faction="kushan" data-img="https://media.moddb.com/cache/images/mods/1/65/64048/thumb_620x2000/Screenshot_from_2026-02-04_23-21-55.png" data-title="The Kushan Exile Fleet" data-desc="Returning from the sands of Kharak, the Kushan specialized in modular Corvette tactics and superior ion cannon array technology.">
+                <span>Kushan</span><span class="arrow">&#x203A;</span>
+              </li>
+              <li class="hw-faction-item" data-faction="taiidan" data-img="https://media.moddb.com/cache/images/mods/1/65/64048/thumb_620x2000/Captura_de_pantalla_2025-03-20_022839.png" data-title="The Taiidan Empire" data-desc="The ancient imperial fleet wields overwhelming firepower through coordinated destroyer wolfpack formations and carrier-based strike craft.">
+                <span>Taiidan</span><span class="arrow">&#x203A;</span>
+              </li>
+              <li class="hw-faction-item" data-faction="hiigaran" data-img="https://media.moddb.com/cache/images/mods/1/65/64048/thumb_620x2000/1000125950.png" data-title="The Hiigaran Navy" data-desc="Balanced fleet doctrine with cutting-edge Sajuuk-era technology. Versatile and adaptive, suited for all combat scenarios.">
+                <span>Hiigaran</span><span class="arrow">&#x203A;</span>
+              </li>
+              <li class="hw-faction-item" data-faction="vaygr" data-img="https://media.moddb.com/cache/images/mods/1/65/64048/thumb_620x2000/1000129075.png" data-title="The Vaygr Crusade" data-desc="Aggressive missile-based doctrine with fast assault craft. The Vaygr overwhelm through sheer numbers and relentless bombardment.">
+                <span>Vaygr</span><span class="arrow">&#x203A;</span>
+              </li>
+            </ul>
+          </div>
+          <div class="hw-faction-showcase">
+            <div class="hw-faction-image-wrapper">
+              <img id="faction-image" src="https://media.moddb.com/cache/images/mods/1/65/64048/thumb_620x2000/Screenshot_from_2026-02-04_23-21-55.png" alt="Kushan Fleet" loading="lazy">
+            </div>
+            <div class="hw-faction-description">
+              <h4 id="faction-title">The Kushan Exile Fleet</h4>
+              <p id="faction-desc">Returning from the sands of Kharak, the Kushan specialized in modular Corvette tactics and superior ion cannon array technology.</p>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+
+    <!-- ====== GALLERY: Horizontal Carousel ====== -->
+    <section id="gallery" class="hw-section" role="region" aria-label="Gallery section">
+      <div class="container">
+        <div class="hw-section-header">
+          <h2 class="hw-section-title">Visual <span class="accent">Archive</span></h2>
+        </div>
+
+        <div class="hw-carousel" aria-label="Image gallery carousel">
+          <button class="hw-carousel-btn hw-carousel-prev" aria-label="Previous images">&#x2039;</button>
+          <div class="hw-carousel-track-wrapper">
+            <div class="hw-carousel-track" id="gallery-track">
+              <div class="hw-carousel-card">
+                <div class="hw-carousel-img"><img src="https://media.moddb.com/cache/images/mods/1/65/64048/thumb_620x2000/Screenshot_from_2026-02-04_23-21-55.png" alt="Taiidan Gas Miner" loading="lazy"></div>
+                <div class="hw-carousel-caption">Taiidan Gas Miner</div>
+              </div>
+              <div class="hw-carousel-card">
+                <div class="hw-carousel-img"><img src="https://media.moddb.com/cache/images/mods/1/65/64048/thumb_620x2000/1000129075.png" alt="Superacolyte Remake" loading="lazy"></div>
+                <div class="hw-carousel-caption">Superacolyte Remake</div>
+              </div>
+              <div class="hw-carousel-card">
+                <div class="hw-carousel-img"><img src="https://media.moddb.com/cache/images/mods/1/65/64048/thumb_620x2000/48CDBF9A-3BE2-435B-9A79-3D8DB6770736.png" alt="Fornax - Binary Star" loading="lazy"></div>
+                <div class="hw-carousel-caption">Fornax &mdash; Binary Star</div>
+              </div>
+              <div class="hw-carousel-card">
+                <div class="hw-carousel-img"><img src="https://media.moddb.com/cache/images/mods/1/65/64048/thumb_620x2000/1000125950.png" alt="Zureth Dockyard" loading="lazy"></div>
+                <div class="hw-carousel-caption">Zureth Dockyard</div>
+              </div>
+              <div class="hw-carousel-card">
+                <div class="hw-carousel-img"><img src="https://media.moddb.com/cache/images/mods/1/65/64048/thumb_620x2000/1000112979.png" alt="Tanis" loading="lazy"></div>
+                <div class="hw-carousel-caption">Tanis</div>
+              </div>
+              <div class="hw-carousel-card">
+                <div class="hw-carousel-img"><img src="https://media.moddb.com/cache/images/mods/1/65/64048/thumb_620x2000/SPOILER_image.png" alt="WIP Kaarsuun Veil" loading="lazy"></div>
+                <div class="hw-carousel-caption">WIP Kaarsuun Veil</div>
+              </div>
+            </div>
+          </div>
+          <button class="hw-carousel-btn hw-carousel-next" aria-label="Next images">&#x203A;</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== NEWS: Horizontal Cards ====== -->
+    <section id="news" class="hw-section hw-section--elevated" role="region" aria-label="News section">
+      <div class="container">
+        <div class="hw-section-header">
+          <h2 class="hw-section-title">Latest <span class="accent">News</span></h2>
+          <a href="https://www.moddb.com/mods/homeworld-rise-of-hiigara/news" target="_blank" class="hw-section-link">View all news &#x203A;</a>
+        </div>
+
+        <div class="hw-news-cards" id="news-cards">
+          <a href="https://www.moddb.com/mods/homeworld-rise-of-hiigara/news/21st-regulancer-homeworld-rise-of-hiigara-showcase-insights" target="_blank" class="hw-news-card">
+            <div class="hw-news-card-img">
+              <img src="https://media.moddb.com/cache/images/mods/1/65/64048/thumb_620x2000/Screenshot_from_2026-02-04_23-21-55.png" alt="" loading="lazy">
+            </div>
+            <div class="hw-news-card-body">
+              <span class="hw-news-card-date">28 Sep 2025</span>
+              <h3 class="hw-news-card-title">[21st REGULANCER] Homeworld Rise of Hiigara Showcase &amp; Insights</h3>
+              <p class="hw-news-card-excerpt">A special event showcase highlighting the latest additions, fleet compositions, and community feedback on the mod.</p>
+            </div>
+          </a>
+          <a href="https://www.moddb.com/mods/homeworld-rise-of-hiigara/news/rise-of-hiigara-v06-the-northern-midring" target="_blank" class="hw-news-card">
+            <div class="hw-news-card-img">
+              <img src="https://media.moddb.com/cache/images/mods/1/65/64048/thumb_620x2000/1000129075.png" alt="" loading="lazy">
+            </div>
+            <div class="hw-news-card-body">
+              <span class="hw-news-card-date">22 Aug 2025</span>
+              <h3 class="hw-news-card-title">Rise of Hiigara V0.6 &mdash; The Northern Midring</h3>
+              <p class="hw-news-card-excerpt">Major update introducing the Northern Midring sector, new factions, rebalanced economy, and over 20 new systems to explore.</p>
+            </div>
+          </a>
+          <a href="https://www.moddb.com/mods/homeworld-rise-of-hiigara/news/homeworld-rise-of-hiigara-release-v051" target="_blank" class="hw-news-card">
+            <div class="hw-news-card-img">
+              <img src="https://media.moddb.com/cache/images/mods/1/65/64048/thumb_620x2000/1000125950.png" alt="" loading="lazy">
+            </div>
+            <div class="hw-news-card-body">
+              <span class="hw-news-card-date">02 Mar 2025</span>
+              <h3 class="hw-news-card-title">Homeworld Rise of Hiigara Release v0.51</h3>
+              <p class="hw-news-card-excerpt">Bug fixes, ship balancing, and the addition of new Hiigaran destroyer variants in this maintenance release.</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== TIMELINE: Our Legacy ====== -->
+    <section id="timeline" class="hw-section" role="region" aria-label="Timeline section">
+      <div class="container">
+        <div class="hw-section-header">
+          <h2 class="hw-section-title">Our <span class="accent">Legacy</span></h2>
+        </div>
+
+        <div class="hw-timeline">
+          <div class="hw-timeline-line" aria-hidden="true"></div>
+          <div class="hw-timeline-item" data-year="2023">
+            <div class="hw-timeline-dot"></div>
+            <div class="hw-timeline-year">2023 Q3</div>
+            <div class="hw-timeline-content">
+              <h4>Start</h4>
+              <p>Initial concept and first Kushan ship models imported into Freelancer engine.</p>
+            </div>
+          </div>
+          <div class="hw-timeline-item" data-year="2024">
+            <div class="hw-timeline-dot"></div>
+            <div class="hw-timeline-year">2024 Q4</div>
+            <div class="hw-timeline-content">
+              <h4>Early Access</h4>
+              <p>v0.5 First playable alpha with 4 systems, Kushan and Taiidan factions, basic combat.</p>
+            </div>
+          </div>
+          <div class="hw-timeline-item" data-year="2025 Q1">
+            <div class="hw-timeline-dot"></div>
+            <div class="hw-timeline-year">2025 Q1</div>
+            <div class="hw-timeline-content">
+              <h4>The Northern Midring</h4>
+              <p>v0.6 public beta release with 10 systems, 8 factions, enhanced graphics pipeline.</p>
+            </div>
+          </div>
+          <div class="hw-timeline-item" data-year="2025">
+            <div class="hw-timeline-dot"></div>
+            <div class="hw-timeline-year">2026 Q2</div>
+            <div class="hw-timeline-content">
+              <h4>The Northern Midring</h4>
+              <p>v0.7 expansion with a total of 26 systems, 15 factions, ship rebalance and more world building.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== DOWNLOAD: Deployment Panel ====== -->
+    <section id="download" class="hw-section hw-section--elevated" role="region" aria-label="Download section">
+      <div class="container">
+        <div class="hw-download-panel">
+          <h2>Initiate <span class="accent">Deployment</span></h2>
+          <div class="hw-download-meta">
+            <span>Version: v0.61 [Beta]</span>
+            <span>Size: 4.2 GB</span>
+            <span>Build: 2024.11.05</span>
+          </div>
+          <p class="hw-download-desc">
+            The complete mod package includes the HD Shipset, Faction Overhaul, and the enhanced FX engine. Compatible with Freelancer 1.1 Vanilla installation.
+          </p>
+          <a href="https://www.moddb.com/mods/homeworld-rise-of-hiigara/downloads" target="_blank" class="hw-btn hw-btn-download">
+            &#x2913; Download Now
+          </a>
+          <p class="hw-requirements">
+            Requires Freelancer (2003) &middot; 8GB RAM &middot; DirectX 11 GPU
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== COMMUNITY: Social Platforms Row ====== -->
+    <section id="community" class="hw-section" role="region" aria-label="Community section">
+      <div class="container">
+        <div class="hw-section-header hw-section-header--centered">
+          <h2 class="hw-section-title">Join the <span class="accent">Fleet</span></h2>
+          <p class="hw-section-subtitle">Connect with the community across these platforms</p>
+        </div>
+
+        <div class="hw-social-row">
+          <a href="https://discord.gg/rFQ9Yb9eJe" target="_blank" class="hw-social-card" title="Discord">
+            <svg class="hw-social-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.095 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.095 2.157 2.42 0 1.333-.947 2.418-2.157 2.418z"/></svg>
+            <span class="hw-social-name">Discord</span>
+          </a>
+          <a href="https://www.moddb.com/mods/homeworld-rise-of-hiigara" target="_blank" class="hw-social-card" title="ModDB">
+            <svg class="hw-social-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+            <span class="hw-social-name">ModDB</span>
+          </a>
+          <a href="https://www.youtube.com/@homeworldriseofhiigara" target="_blank" class="hw-social-card" title="YouTube">
+            <svg class="hw-social-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+            <span class="hw-social-name">YouTube</span>
+          </a>
+          <a href="https://github.com" target="_blank" class="hw-social-card" title="GitHub">
+            <svg class="hw-social-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+            <span class="hw-social-name">GitHub</span>
+          </a>
+        </div>
+
+        <!-- Stats bar -->
+        <div class="hw-stats-bar">
+          <div class="hw-stat">
+            <div class="hw-stat-value">600+</div>
+            <div class="hw-stat-label">Downloads</div>
+          </div>
+          <div class="hw-stat">
+            <div class="hw-stat-value">2.4k</div>
+            <div class="hw-stat-label">Discord Members</div>
+          </div>
+          <div class="hw-stat">
+            <div class="hw-stat-value">15+</div>
+            <div class="hw-stat-label">Active Devs</div>
+          </div>
+          <div class="hw-stat">
+            <div class="hw-stat-value">50+</div>
+            <div class="hw-stat-label">Ship Classes</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
   </main>
-  
+
   <!-- Footer -->
   <footer class="hw-footer" role="contentinfo">
     <div class="container">
       <div class="hw-footer-grid">
         <div class="hw-footer-brand">
-          <div class="hw-footer-logo">
-            <span style="font-size: 1.2em;">⚔</span>
-            <span>Rise of Hiigara</span>
-          </div>
+          <div class="hw-footer-logo"><span>Rise_of_Hiigara</span></div>
           <p class="hw-footer-desc">
             This mod contains assets from Homeworld, any donations are prohibited, this is a work of passion and a love letter to Homeworld. If you like this and want to support, please do so with comments or discord, and also by buying Homeworld Remastered, Deserts of Kharak and Homeworld 3.
           </p>
         </div>
-        
+        <div>
+          <h5 class="hw-footer-title">Support</h5>
+          <ul class="hw-footer-links">
+            <li><a href="https://discord.gg/rFQ9Yb9eJe" class="hw-footer-link">Discord</a></li>
+            <li><a href="https://github.com" class="hw-footer-link">GitHub</a></li>
+          </ul>
+        </div>
         <div>
           <h5 class="hw-footer-title">Navigation</h5>
           <ul class="hw-footer-links">
@@ -360,22 +451,15 @@
           </ul>
         </div>
       </div>
-      
       <div class="hw-footer-bottom">
         <p class="hw-footer-copy">
-          © 2024 Homeworld Rise of Hiigara. All rights reserved.<br>
+          &copy; 2024 Homeworld Rise of Hiigara. All rights reserved.<br>
           Homeworld is a trademark of Gearbox Software and Relic Entertainment.
         </p>
-        
-        <div class="hw-social">
-          <a href="#" class="hw-social-link" title="Discord">💬</a>
-          <a href="#" class="hw-social-link" title="Twitter">🐦</a>
-          <a href="#" class="hw-social-link" title="YouTube">📺</a>
-        </div>
       </div>
     </div>
   </footer>
-  
+
   <script src="js/main.js"></script>
 </body>
 </html>
