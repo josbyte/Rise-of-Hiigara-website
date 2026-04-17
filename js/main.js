@@ -330,32 +330,43 @@ function initThemeSelector() {
   });
 }
 
+function colorBrightness(hex) {
+  hex = (hex || '').replace(/^#/, '');
+  const r = parseInt(hex.substring(0, 2), 16);
+  const g = parseInt(hex.substring(2, 4), 16);
+  const b = parseInt(hex.substring(4, 6), 16);
+  return (r * 299 + g * 587 + b * 114) / 1000;
+}
+
+function contrastColor(hex) {
+  return colorBrightness(hex) > 128 ? '#111111' : '#ffffff';
+}
+
 function applyTheme(option) {
   const baseColor = option.dataset.base;
   const secondaryColor = option.dataset.secondary;
   const root = document.documentElement;
 
-  // Determine primary: use base unless it's too dark (near black), then fall back to secondary
-  const baseRaw = baseColor.replace(/^#/, '');
-  const bR = parseInt(baseRaw.substring(0, 2), 16);
-  const bG = parseInt(baseRaw.substring(2, 4), 16);
-  const bB = parseInt(baseRaw.substring(4, 6), 16);
-  const baseBrightness = (bR * 299 + bG * 587 + bB * 114) / 1000;
-
-  const primaryColor = baseBrightness > 40 ? baseColor : secondaryColor;
+  // Use base as primary unless it's near-black, then use secondary
+  const primaryColor = colorBrightness(baseColor) > 40 ? baseColor : secondaryColor;
 
   root.style.setProperty('--primary', primaryColor);
   root.style.setProperty('--primary-rgb', hexToRgb(primaryColor));
+  root.style.setProperty('--on-primary', contrastColor(primaryColor));
+
   root.style.setProperty('--secondary', secondaryColor);
   root.style.setProperty('--secondary-rgb', hexToRgb(secondaryColor));
+  root.style.setProperty('--on-secondary', contrastColor(secondaryColor));
 }
 
 function resetTheme() {
   const root = document.documentElement;
   root.style.setProperty('--primary', '#0071ff');
   root.style.setProperty('--primary-rgb', '0, 113, 255');
+  root.style.setProperty('--on-primary', '#ffffff');
   root.style.setProperty('--secondary', '#e8a020');
   root.style.setProperty('--secondary-rgb', '232, 160, 32');
+  root.style.setProperty('--on-secondary', '#1a1000');
 }
 
 function hexToRgb(hex) {

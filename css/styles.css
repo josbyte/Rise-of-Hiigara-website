@@ -233,14 +233,28 @@ header { position: fixed; top: 0; left: 0; right: 0; z-index: var(--z-modal); }
   position: relative; text-decoration: none;
 }
 .hw-btn-primary {
-  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  background: linear-gradient(
+    110deg,
+    var(--primary) 72%,
+    var(--secondary) 72%, var(--secondary) 78%,
+    var(--primary) 78%, var(--primary) 84%,
+    var(--secondary) 84%, var(--secondary) 90%,
+    var(--primary) 90%
+  );
   color: var(--on-primary);
   box-shadow: 0 0 20px rgba(var(--primary-rgb), 0.10);
 }
 .hw-btn-primary:hover {
-  background: linear-gradient(135deg, var(--secondary), var(--primary));
+  background: linear-gradient(
+    110deg,
+    var(--secondary) 72%,
+    var(--primary) 72%, var(--primary) 78%,
+    var(--secondary) 78%, var(--secondary) 84%,
+    var(--primary) 84%, var(--primary) 90%,
+    var(--secondary) 90%
+  );
   box-shadow: 0 0 30px rgba(var(--primary-rgb), 0.20), 0 0 60px rgba(var(--primary-rgb), 0.08);
-  transform: translateY(-1px); color: var(--on-primary);
+  transform: translateY(-1px); color: var(--on-secondary);
 }
 .hw-btn-outline {
   background: transparent; color: var(--on-surface-variant);
@@ -252,14 +266,28 @@ header { position: fixed; top: 0; left: 0; right: 0; z-index: var(--z-modal); }
 }
 .hw-btn-lg { padding: var(--space-4) var(--space-10); font-size: var(--body-sm); }
 .hw-btn-download {
-  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  background: linear-gradient(
+    110deg,
+    var(--primary) 72%,
+    var(--secondary) 72%, var(--secondary) 78%,
+    var(--primary) 78%, var(--primary) 84%,
+    var(--secondary) 84%, var(--secondary) 90%,
+    var(--primary) 90%
+  );
   color: var(--on-primary); padding: var(--space-4) var(--space-10);
   font-size: var(--body-sm); letter-spacing: 0.2em;
 }
 .hw-btn-download:hover {
-  background: linear-gradient(135deg, var(--secondary), var(--primary));
+  background: linear-gradient(
+    110deg,
+    var(--secondary) 72%,
+    var(--primary) 72%, var(--primary) 78%,
+    var(--secondary) 78%, var(--secondary) 84%,
+    var(--primary) 84%, var(--primary) 90%,
+    var(--secondary) 90%
+  );
   box-shadow: 0 0 30px rgba(var(--primary-rgb), 0.20), 0 0 60px rgba(var(--primary-rgb), 0.08);
-  transform: translateY(-2px); color: var(--on-primary);
+  transform: translateY(-2px); color: var(--on-secondary);
 }
 
 /* ================================================
