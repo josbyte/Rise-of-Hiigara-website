@@ -333,40 +333,29 @@ function initThemeSelector() {
 function applyTheme(option) {
   const baseColor = option.dataset.base;
   const secondaryColor = option.dataset.secondary;
-  const baseRGB = hexToRgb(baseColor);
-  const secondaryRGB = hexToRgb(secondaryColor);
   const root = document.documentElement;
-  root.style.setProperty('--theme-base', baseColor);
-  root.style.setProperty('--theme-secondary', secondaryColor);
-  root.style.setProperty('--theme-base-rgb', baseRGB);
-  root.style.setProperty('--theme-secondary-rgb', secondaryRGB);
 
-  const baseHex = baseColor.replace(/^#/, '');
-  const bR = parseInt(baseHex.substring(0, 2), 16);
-  const bG = parseInt(baseHex.substring(2, 4), 16);
-  const bB = parseInt(baseHex.substring(4, 6), 16);
+  // Determine primary: use base unless it's too dark (near black), then fall back to secondary
+  const baseRaw = baseColor.replace(/^#/, '');
+  const bR = parseInt(baseRaw.substring(0, 2), 16);
+  const bG = parseInt(baseRaw.substring(2, 4), 16);
+  const bB = parseInt(baseRaw.substring(4, 6), 16);
   const baseBrightness = (bR * 299 + bG * 587 + bB * 114) / 1000;
 
-  let primaryColor = baseBrightness > 60 ? baseColor : secondaryColor;
-  const priHex = primaryColor.replace(/^#/, '');
-  const pR = parseInt(priHex.substring(0, 2), 16);
-  const pG = parseInt(priHex.substring(2, 4), 16);
-  const pB = parseInt(priHex.substring(4, 6), 16);
-  const priBrightness = (pR * 299 + pG * 587 + pB * 114) / 1000;
-  if (priBrightness < 40) primaryColor = '#0071ff';
+  const primaryColor = baseBrightness > 40 ? baseColor : secondaryColor;
 
   root.style.setProperty('--primary', primaryColor);
   root.style.setProperty('--primary-rgb', hexToRgb(primaryColor));
+  root.style.setProperty('--secondary', secondaryColor);
+  root.style.setProperty('--secondary-rgb', hexToRgb(secondaryColor));
 }
 
 function resetTheme() {
   const root = document.documentElement;
   root.style.setProperty('--primary', '#0071ff');
   root.style.setProperty('--primary-rgb', '0, 113, 255');
-  root.style.setProperty('--theme-base', '#0071ff');
-  root.style.setProperty('--theme-secondary', '#e8a020');
-  root.style.setProperty('--theme-base-rgb', '0, 113, 255');
-  root.style.setProperty('--theme-secondary-rgb', '232, 160, 32');
+  root.style.setProperty('--secondary', '#e8a020');
+  root.style.setProperty('--secondary-rgb', '232, 160, 32');
 }
 
 function hexToRgb(hex) {

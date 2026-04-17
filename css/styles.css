@@ -233,12 +233,12 @@ header { position: fixed; top: 0; left: 0; right: 0; z-index: var(--z-modal); }
   position: relative; text-decoration: none;
 }
 .hw-btn-primary {
-  background: linear-gradient(135deg, var(--primary), var(--primary-container));
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
   color: var(--on-primary);
   box-shadow: 0 0 20px rgba(var(--primary-rgb), 0.10);
 }
 .hw-btn-primary:hover {
-  background: linear-gradient(135deg, #0080ff, var(--primary));
+  background: linear-gradient(135deg, var(--secondary), var(--primary));
   box-shadow: 0 0 30px rgba(var(--primary-rgb), 0.20), 0 0 60px rgba(var(--primary-rgb), 0.08);
   transform: translateY(-1px); color: var(--on-primary);
 }
@@ -252,11 +252,12 @@ header { position: fixed; top: 0; left: 0; right: 0; z-index: var(--z-modal); }
 }
 .hw-btn-lg { padding: var(--space-4) var(--space-10); font-size: var(--body-sm); }
 .hw-btn-download {
-  background: linear-gradient(135deg, var(--primary), #0060dd);
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
   color: var(--on-primary); padding: var(--space-4) var(--space-10);
   font-size: var(--body-sm); letter-spacing: 0.2em;
 }
 .hw-btn-download:hover {
+  background: linear-gradient(135deg, var(--secondary), var(--primary));
   box-shadow: 0 0 30px rgba(var(--primary-rgb), 0.20), 0 0 60px rgba(var(--primary-rgb), 0.08);
   transform: translateY(-2px); color: var(--on-primary);
 }
@@ -292,7 +293,12 @@ header { position: fixed; top: 0; left: 0; right: 0; z-index: var(--z-modal); }
 
 /* HUD Angular Brackets */
 .hw-hero-brackets {
-  position: absolute; inset: var(--space-10); z-index: 2;
+  position: absolute; 
+  top: 4.5em;
+  right: 2.5em;
+  bottom: 2.5em;
+  left: 2.5em;
+  z-index: 2;
   pointer-events: none;
 }
 .bracket {
@@ -654,7 +660,7 @@ header { position: fixed; top: 0; left: 0; right: 0; z-index: var(--z-modal); }
   max-width: 600px; margin: 0 auto;
   padding: var(--space-12) var(--space-10);
   background: linear-gradient(135deg, var(--surface-container), var(--surface-container-low));
-  text-align: center; position: relative;
+  text-align: left; position: relative;
 }
 .hw-download-panel::before, .hw-download-panel::after {
   content: ''; position: absolute; width: 20px; height: 20px;
@@ -665,6 +671,7 @@ header { position: fixed; top: 0; left: 0; right: 0; z-index: var(--z-modal); }
 .hw-download-panel h2 {
   font-size: var(--headline-lg); color: var(--on-surface);
   margin-bottom: var(--space-4); letter-spacing: 0.15em;
+  text-align: center;
 }
 
 .hw-download-meta {
@@ -679,6 +686,15 @@ header { position: fixed; top: 0; left: 0; right: 0; z-index: var(--z-modal); }
   font-size: var(--body-sm); color: var(--on-surface-variant);
   margin-bottom: var(--space-8); max-width: 400px;
   margin-left: auto; margin-right: auto; line-height: 1.6;
+  text-align: center;
+}
+
+.hw-download-steps {
+  text-align: left;
+  max-width: 460px;
+  margin: 0 auto var(--space-8);
+  padding-left: var(--space-5);
+  line-height: 1.75;
 }
 
 .hw-requirements {
