@@ -1,0 +1,416 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Submit bar rumors for Rise of Hiigara. Share station gossip, faction whispers, and lore-friendly NPC chatter for the mod."
+    />
+    <meta name="theme-color" content="#0f131f" />
+    <meta
+      name="keywords"
+      content="Rise of Hiigara, rumor mill, Freelancer, Homeworld, NPC rumors"
+    />
+    <meta name="author" content="Rise of Hiigara Team" />
+    <title>Rise of Hiigara | Rumor Mill</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/rumor-mill.css" />
+  </head>
+  <body class="rm-body" role="document">
+    <div class="hw-bg" aria-hidden="true"></div>
+    <div class="hw-stars" aria-hidden="true"></div>
+
+    <a href="#main-content" class="hw-skip-link">Skip to main content</a>
+
+    <header>
+      <nav class="hw-nav" role="navigation" aria-label="Main navigation">
+        <div class="hw-nav-container">
+          <a href="index.html" class="hw-nav-logo">
+            <div class="hw-nav-logo-icon">
+              <img
+                src="assets/roh-icon.webp"
+                alt="Rise of Hiigara logo"
+                class="hw-roh-icon"
+                width="32"
+                height="32"
+              />
+            </div>
+            <span>Rise of Hiigara</span>
+          </a>
+
+          <ul class="hw-nav-links" role="menubar">
+            <li role="none"><a href="index.html" class="hw-nav-link" role="menuitem">Home</a></li>
+            <li role="none">
+              <a href="#rumor-guide" class="hw-nav-link active" role="menuitem">Guide</a>
+            </li>
+            <li role="none">
+              <a href="#submit-rumor" class="hw-nav-link" role="menuitem">Submit</a>
+            </li>
+            <li role="none">
+              <a href="index.html#community" class="hw-nav-link" role="menuitem">Community</a>
+            </li>
+            <li role="none">
+              <div class="hw-theme-selector">
+                <label for="faction-select" class="hw-theme-label">Today I feel:</label>
+                <div class="hw-select-wrapper">
+                  <select
+                    id="faction-select"
+                    class="hw-faction-select"
+                    aria-label="Select faction theme color"
+                  >
+                    <option value="default">Hiigaran</option>
+                    <optgroup label="like my Homeworld just got blown up">
+                      <option value="kushan" data-base="#8E9FA1" data-secondary="#FFFFFF">
+                        Kushan
+                      </option>
+                      <option value="taiidan" data-base="#FFD106" data-secondary="#ED2024">
+                        Taiidan
+                      </option>
+                      <option value="imperial-elite" data-base="#000000" data-secondary="#000000">
+                        Imperial Elite
+                      </option>
+                      <option value="turanic" data-base="#F7ED41" data-secondary="#D2D2C8">
+                        Turanic (P1)
+                      </option>
+                    </optgroup>
+                    <optgroup label="like having fear for space zombies">
+                      <option value="somtaaw" data-base="#496BB3" data-secondary="#FFFFFF">
+                        Somtaaw
+                      </option>
+                      <option value="beast" data-base="#968081" data-secondary="#C72026">
+                        Beast
+                      </option>
+                      <option value="imperial-somtaaw" data-base="#FBEC24" data-secondary="#AB2E24">
+                        Imperial
+                      </option>
+                      <option value="republic" data-base="#FFFFFF" data-secondary="#008080">
+                        Republic
+                      </option>
+                      <option value="pirates" data-base="#F47F45" data-secondary="#F6EB13">
+                        Pirates
+                      </option>
+                      <option value="nabaal" data-base="#E3AD52" data-secondary="#976F2A">
+                        Nabaal
+                      </option>
+                      <option value="sjet" data-base="#C72026" data-secondary="#3953A4">
+                        S'Jet
+                      </option>
+                      <option value="manaan" data-base="#399745" data-secondary="#B8D661">
+                        Manaan
+                      </option>
+                    </optgroup>
+                    <optgroup label="like being invaded by space vikings">
+                      <option
+                        value="hiigaran"
+                        data-base="#5D8DAA"
+                        data-secondary="#CCCCCC"
+                        selected
+                      >
+                        Hiigaran
+                      </option>
+                      <option value="vaygr" data-base="#E5E5E5" data-secondary="#191919">
+                        Vaygr
+                      </option>
+                      <option value="elite-vaygr" data-base="#0C0C0C" data-secondary="#8F000B">
+                        Elite Vaygr
+                      </option>
+                      <option value="soban" data-base="#000000" data-secondary="#FF0000">
+                        Soban
+                      </option>
+                      <option value="progenitor" data-base="#94A494" data-secondary="#8F2A2A">
+                        Progenitor Hull
+                      </option>
+                    </optgroup>
+                  </select>
+                </div>
+              </div>
+            </li>
+          </ul>
+
+          <div class="hw-nav-actions">
+            <a href="#submit-rumor" class="hw-nav-cta">Transmit</a>
+          </div>
+
+          <button class="hw-nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </nav>
+    </header>
+
+    <main id="main-content">
+      <section class="rm-hero" aria-label="Rumor mill hero">
+        <div class="container rm-hero-grid">
+          <div class="rm-hero-copy">
+            <p class="rm-kicker">Cantina Relay // Civilian Traffic</p>
+            <h1 class="rm-title">Feed the rumor mill.</h1>
+            <p class="rm-subtitle">
+              Send tavern gossip, faction whispers, and dockside chatter for the NPC bars of Rise of
+              Hiigara. We are after short rumors that feel like they belong inside Freelancer and
+              Homeworld space.
+            </p>
+            <div class="rm-hero-actions">
+              <a href="#submit-rumor" class="hw-btn hw-btn-primary hw-btn-lg">Transmit Rumor</a>
+              <a href="#rumor-guide" class="hw-btn hw-btn-outline hw-btn-lg">Read Rules</a>
+            </div>
+          </div>
+
+          <aside class="rm-signal" aria-label="Transmission summary">
+            <p class="rm-panel-label">Broadcast Profile</p>
+            <ul class="rm-signal-list">
+              <li>Short, flavorful, lore-friendly rumors</li>
+              <li>Not every accepted rumor will appear in-game</li>
+              <li>Submissions may be edited for tone, clarity, or length</li>
+              <li>Spam and inappropriate content are filtered out</li>
+            </ul>
+          </aside>
+        </div>
+      </section>
+
+      <section
+        id="rumor-guide"
+        class="hw-section rm-guide-section"
+        aria-label="Rumor writing guide"
+      >
+        <div class="container">
+          <div class="hw-section-header">
+            <h2 class="hw-section-title">Rumor <span class="accent">Guide</span></h2>
+            <span class="hw-section-tag">[ Lore_Filter: Online ]</span>
+          </div>
+
+          <div class="rm-guide-grid">
+            <article class="rm-guide-panel">
+              <h3 class="rm-panel-title">What works well</h3>
+              <ul class="rm-guide-list">
+                <li>Talk like a pilot, dockworker, trader, patrol officer, or station drunk.</li>
+                <li>Keep it punchy. One rumor should feel overheard, not narrated.</li>
+                <li>
+                  Hint at danger, shortages, patrols, wrecks, raids, politics, or strange signals.
+                </li>
+                <li>Use places and factions that actually make sense in the mod universe.</li>
+              </ul>
+            </article>
+
+            <article class="rm-guide-panel">
+              <h3 class="rm-panel-title">Moderation notes</h3>
+              <ul class="rm-guide-list">
+                <li>Not all rumors will appear, even if they fit the setting.</li>
+                <li>We may rewrite small parts to match in-game tone and formatting.</li>
+                <li>No hateful, sexual, illegal, or harassing content.</li>
+                <li>No personal attacks, links, slurs, or out-of-universe drama.</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section
+        id="submit-rumor"
+        class="hw-section hw-section--elevated rm-form-section"
+        aria-label="Rumor submission form"
+      >
+        <div class="container rm-form-layout">
+          <div class="rm-form-copy">
+            <div class="hw-section-header rm-left-header">
+              <h2 class="hw-section-title">Submit <span class="accent">Rumor</span></h2>
+              <span class="hw-section-tag">[Review_Queue]</span>
+            </div>
+            <p>
+              Write it as if somebody at the bar has heard just enough to make the player curious.
+              The best rumors feel half-true, slightly dangerous, and easy to imagine being repeated
+              from table to table. Or just talk about their daily life, imagine yourself as entering
+              the bar what would you hear. Keep Freelancer rumors in mind for inspiration.
+            </p>
+            <div class="rm-advice-strip">
+              <span>Advice</span>
+              <p>
+                - Do not write patch notes, full lore dumps, or mission text. A rumor should tease,
+                not explain everything.
+              </p>
+              <p>
+                - Remember, current mod date is 11 After Hiigara Landing, The Beast happened in 15
+                AHL. So no events that happened in Cataclysm, yet.
+              </p>
+              <p>
+                - Mentioning other rumors, npcs, or events is encouraged to create a sense of
+                continuity and immersion.
+              </p>
+            </div>
+          </div>
+
+          <form
+            class="rm-form"
+            id="rumor-mill-form"
+            novalidate
+            data-endpoint="http://coconut.fps.ms:10170"
+          >
+            <div class="rm-field-grid">
+              <label class="rm-field" for="contributor-name">
+                <span>Contributor Name</span>
+                <input
+                  id="contributor-name"
+                  name="contributor_name"
+                  type="text"
+                  maxlength="40"
+                  placeholder="Your name or alias"
+                  required
+                />
+              </label>
+
+              <label class="rm-field" for="npc-name">
+                <span>NPC Name</span>
+                <input
+                  id="npc-name"
+                  name="npc_name"
+                  type="text"
+                  maxlength="40"
+                  placeholder="Name of the NPC telling the rumor"
+                />
+              </label>
+
+              <label class="rm-field" for="rumor-faction">
+                <span>Faction</span>
+                <select id="rumor-faction" name="faction" required>
+                  <option value="">Choose a faction</option>
+                  <option>Kushan</option>
+                  <option>Kiith Naabal</option>
+                  <option>Kiith Sjet</option>
+                  <option>Kiith Maanan</option>
+                  <option>Kiith Somtaaw</option>
+                  <option>Kiith Tambuur</option>
+                  <option>Kiith Kaalel</option>
+                  <option>Kiith Soban</option>
+                  <option>Taiidan Empire</option>
+                  <option>Taiidan Republic</option>
+                  <option>Turanic Raiders</option>
+                  <option>Civilian Commerce Relay</option>
+                  <option>Ambition Commonwealth</option>
+                  <option>Taiidan Exports and Logistics</option>
+                  <option>Iskandria Government</option>
+                  <option>Count Bergauthur</option>
+                </select>
+              </label>
+            </div>
+
+            <label class="rm-field rm-field-full" for="rumor-text">
+              <span>Rumor text</span>
+              <textarea
+                id="rumor-text"
+                name="rumor"
+                rows="8"
+                maxlength="800"
+                placeholder="Example: Heard a Hiigaran convoy vanished near the old gates. Survivors swear they saw a carrier running dark with no transponder..."
+                required
+              ></textarea>
+              <small id="rumor-counter" class="rm-counter">0 / 800</small>
+            </label>
+
+            <div class="rm-field rm-honeypot" aria-hidden="true">
+              <span>Leave this field empty</span>
+              <input
+                id="rumor-callsign"
+                name="callsign"
+                type="text"
+                tabindex="-1"
+                autocomplete="off"
+              />
+            </div>
+
+            <div class="rm-security-grid">
+              <label class="rm-field" for="captcha-answer">
+                <span>Checkpoint</span>
+                <div class="rm-captcha-row">
+                  <div class="rm-captcha-box" id="captcha-question" aria-live="polite"></div>
+                  <button
+                    type="button"
+                    class="rm-refresh"
+                    id="captcha-refresh"
+                    aria-label="Generate a new captcha"
+                  >
+                    &#x21BB;
+                  </button>
+                </div>
+              </label>
+
+              <label class="rm-field" for="captcha-answer">
+                <span>Your answer</span>
+                <input
+                  id="captcha-answer"
+                  name="captcha"
+                  type="text"
+                  inputmode="numeric"
+                  placeholder="Type the result"
+                  required
+                />
+              </label>
+            </div>
+
+            <label class="rm-consent">
+              <input id="rumor-consent" name="consent" type="checkbox" required />
+              <span
+                >I understand this rumor may be moderated, edited, delayed, or never used
+                in-game.</span
+              >
+            </label>
+
+            <div class="rm-actions">
+              <button type="submit" class="hw-btn hw-btn-primary hw-btn-lg">
+                Send Transmission
+              </button>
+              <p class="rm-status" id="rumor-status" aria-live="polite">
+                All submissions are reviewed before entering the cantina rotation.
+              </p>
+            </div>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="hw-footer" role="contentinfo">
+      <div class="container">
+        <div class="hw-footer-grid">
+          <div class="hw-footer-brand">
+            <div class="hw-footer-logo"><span>Rise_of_Hiigara</span></div>
+            <p class="hw-footer-desc">
+              Community rumors help bring bars and stations to life. Keep submissions in-universe
+              and respectful.
+            </p>
+          </div>
+          <div>
+            <h5 class="hw-footer-title">Support</h5>
+            <ul class="hw-footer-links">
+              <li><a href="https://discord.gg/rFQ9Yb9eJe" class="hw-footer-link">Discord</a></li>
+              <li>
+                <a
+                  href="https://www.moddb.com/mods/homeworld-rise-of-hiigara"
+                  class="hw-footer-link"
+                  >Moddb</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h5 class="hw-footer-title">Navigation</h5>
+            <ul class="hw-footer-links">
+              <li><a href="index.html" class="hw-footer-link">Home</a></li>
+              <li><a href="#rumor-guide" class="hw-footer-link">Guide</a></li>
+              <li><a href="#submit-rumor" class="hw-footer-link">Submit</a></li>
+              <li><a href="index.html#community" class="hw-footer-link">Community</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="hw-footer-bottom">
+          <p class="hw-footer-copy">
+            Rise of Hiigara rumor uplink. A submission page for station bar chatter.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/rumor-mill.js"></script>
+  </body>
+</html>

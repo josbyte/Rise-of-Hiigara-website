@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initFactionShowcase();
   initThemeSelector();
   initStatCounters();
+  initRumorForm();
   initModDBFeeds();
 });
 
@@ -433,6 +434,113 @@ function animateCounter(el) {
     if (progress < 1) requestAnimationFrame(step);
   }
   requestAnimationFrame(step);
+}
+
+/* === RUMOR FORM === */
+function initRumorForm() {
+  const form = document.getElementById('rumor-form');
+  if (!form) return;
+
+  const status = document.getElementById('rumor-status');
+  const captchaQuestion = document.getElementById('rumor-captcha-question');
+  const captchaInput = document.getElementById('rumor-captcha');
+  const captchaRefresh = document.getElementById('rumor-captcha-refresh');
+  const agreement = document.getElementById('rumor-agreement');
+  const rumorText = document.getElementById('rumor-text');
+  let captchaAnswer = '';
+
+  const blockedPatterns = [
+    /https?:\/\//i,
+    /www\./i,
+    /\bdiscord\b/i,
+    /\b(?:porn|nsfw|nude)\b/i,
+    /\b(?:slur|kill yourself)\b/i
+  ];
+
+  function setStatus(message, type) {
+    if (!status) return;
+    status.textContent = message;
+    status.classList.remove('is-error', 'is-success');
+    if (type) status.classList.add(type === 'error' ? 'is-error' : 'is-success');
+  }
+
+  function regenerateCaptcha() {
+    const left = Math.floor(Math.random() * 8) + 2;
+    const right = Math.floor(Math.random() * 8) + 1;
+    captchaAnswer = String(left + right);
+    captchaQuestion.textContent = 'Confirm: ' + left + ' + ' + right;
+    captchaInput.value = '';
+  }
+
+  captchaRefresh.addEventListener('click', regenerateCaptcha);
+  regenerateCaptcha();
+
+  rumorText.addEventListener('input', () => {
+    const length = rumorText.value.trim().length;
+    if (!length) {
+      setStatus('All rumors are reviewed before they can reach a bar terminal.');
+      return;
+    }
+
+    if (length < 30) {
+      setStatus('Add a little more detail so the rumor sounds like real cantina gossip.');
+      return;
+    }
+
+    setStatus(length + ' / 420 characters. Solid length for an overheard bar rumor.');
+  });
+
+  form.addEventListener('submit', event => {
+    event.preventDefault();
+
+    const formData = new FormData(form);
+    const name = String(formData.get('name') || '').trim();
+    const faction = String(formData.get('faction') || '').trim();
+    const rumor = String(formData.get('rumor') || '').trim();
+    const captcha = String(formData.get('captcha') || '').trim();
+
+    if (!name || !faction || !rumor) {
+      setStatus('Fill in name, faction, and rumor before transmitting.', 'error');
+      return;
+    }
+
+    if (rumor.length < 30) {
+      setStatus('The rumor is too short. Give it a bit more atmosphere.', 'error');
+      return;
+    }
+
+    if (blockedPatterns.some(pattern => pattern.test(rumor) || pattern.test(name))) {
+      setStatus('This submission looks unsafe or out of bounds. Remove links or inappropriate wording and try again.', 'error');
+      return;
+    }
+
+    if (!agreement.checked) {
+      setStatus('You need to accept the review notice before sending the rumor.', 'error');
+      return;
+    }
+
+    if (captcha !== captchaAnswer) {
+      setStatus('Captcha failed. Please solve the checkpoint again.', 'error');
+      regenerateCaptcha();
+      captchaInput.focus();
+      return;
+    }
+
+    try {
+      localStorage.setItem('roh-latest-rumor', JSON.stringify({
+        name: name,
+        faction: faction,
+        rumor: rumor,
+        submittedAt: new Date().toISOString()
+      }));
+    } catch (error) {
+      console.warn('Rumor draft could not be cached locally.', error);
+    }
+
+    form.reset();
+    regenerateCaptcha();
+    setStatus('Rumor transmitted for review. If it fits the setting, it may show up in a future bar rotation.', 'success');
+  });
 }
 
 /* === MODDB RSS FEEDS === */
