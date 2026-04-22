@@ -67,14 +67,16 @@ function initRumorMillForm() {
     const input = String(raw || '').trim();
     if (!input) return '';
 
-    const hasScheme = /^[a-z]+:\/\//i.test(input);
+    // Force HTTP scheme for API connection
+    const scheme = 'http:';
+    let processed = input;
 
-    // If the page is opened as `file://`, pick a sensible default scheme for network calls.
-    const pageProtocol = window.location.protocol;
-    const defaultScheme = pageProtocol === 'https:' ? 'https:' : 'http:';
-    const scheme = pageProtocol === 'file:' ? 'https:' : defaultScheme;
+    // Replace https:// with http:// if present
+    processed = processed.replace(/^https:\/\//i, 'http://');
 
-    const base = hasScheme ? input : scheme + '//' + input;
+    const hasScheme = /^[a-z]+:\/\//i.test(processed);
+
+    const base = hasScheme ? processed : scheme + '//' + processed;
 
     // If no explicit path, assume collector path.
     const hasPath = /\/\/[^/]+\/.+/.test(base);
@@ -92,14 +94,7 @@ function initRumorMillForm() {
     }
 
     try {
-      const url = new URL(endpoint);
-      if (window.location.protocol === 'https:' && url.protocol === 'http:') {
-        setStatus(
-          'Blocked by browser security: this page is HTTPS but the endpoint is HTTP. Use an HTTPS endpoint (or same-origin).',
-          'error'
-        );
-        return;
-      }
+      new URL(endpoint);
     } catch (_e) {
       setStatus('Invalid endpoint URL.', 'error');
       return;
