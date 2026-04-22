@@ -67,15 +67,15 @@ function initRumorMillForm() {
     const input = String(raw || '').trim();
     if (!input) return '';
 
-    // Force HTTP scheme for API connection
-    const scheme = 'http:';
     let processed = input;
 
-    // Replace https:// with http:// if present
-    processed = processed.replace(/^https:\/\//i, 'http://');
+    // Upgrade http:// to https://
+    processed = processed.replace(/^http:\/\//i, 'https://');
 
     const hasScheme = /^[a-z]+:\/\//i.test(processed);
 
+    // Default to HTTPS if no scheme
+    const scheme = 'https:';
     const base = hasScheme ? processed : scheme + '//' + processed;
 
     // If no explicit path, assume collector path.
@@ -83,31 +83,13 @@ function initRumorMillForm() {
     return hasPath ? base : base + '';
   }
 
-  async function fetchWithProxy(url, options) {
-    // If page is HTTPS and URL is HTTP, use a CORS proxy
-    const pageIsHttps = window.location.protocol === 'https:';
-    const urlObj = new URL(url);
-    const urlIsHttp = urlObj.protocol === 'http:';
-    
-    if (pageIsHttps && urlIsHttp) {
-      // Use a CORS proxy that supports POST
-      const proxyUrl = 'https://corsproxy.io/?' + encodeURIComponent(url);
-      console.log('Using CORS proxy:', proxyUrl);
-      // Clone options to avoid mutating original
-      const proxyOptions = { ...options };
-      // corsproxy.io requires Origin header, but fetch will set it automatically
-      return fetch(proxyUrl, proxyOptions);
-    }
-    
-    // Direct fetch for same-protocol requests
-    return fetch(url, options);
-  }
+
 
   form.addEventListener('submit', (event) => {
     event.preventDefault();
 
     const endpoint =
-      normalizeEndpoint(form.dataset.endpoint) || normalizeEndpoint('http://64.226.100.34:5174');
+      normalizeEndpoint(form.dataset.endpoint) || normalizeEndpoint('https://rescue-charity-fabulous-nato.trycloudflare.com');
     if (!endpoint) {
       setStatus('Missing endpoint configuration.', 'error');
       return;
@@ -168,7 +150,7 @@ function initRumorMillForm() {
 
     // Post to the local rumor collector (which relays to Discord).
     const apiUrl = endpoint + '/api/rumor';
-    fetchWithProxy(apiUrl, {
+    fetch(apiUrl, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -212,7 +194,7 @@ function initRumorMillForm() {
         regenerateCaptcha();
         captchaAnswerInput.focus();
         setStatus(
-          'Could not reach the bot endpoint or it rejected the submission. Check HTTPS vs HTTP, CORS, and that the port is open.',
+          'Could not reach the bot endpoint or it rejected the submission. Check CORS configuration and that the endpoint is accessible.',
           'error'
         );
       });
