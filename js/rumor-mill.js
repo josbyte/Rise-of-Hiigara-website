@@ -85,7 +85,7 @@ function initRumorMillForm() {
     event.preventDefault();
 
     const endpoint =
-      normalizeEndpoint(form.dataset.endpoint) || normalizeEndpoint('coconut.fps.ms:10170');
+      normalizeEndpoint(form.dataset.endpoint) || normalizeEndpoint('http://64.226.100.34:5174');
     if (!endpoint) {
       setStatus('Missing endpoint configuration.', 'error');
       return;
