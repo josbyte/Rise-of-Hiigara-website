@@ -83,6 +83,26 @@ function initRumorMillForm() {
     return hasPath ? base : base + '';
   }
 
+  async function fetchWithProxy(url, options) {
+    // If page is HTTPS and URL is HTTP, use a CORS proxy
+    const pageIsHttps = window.location.protocol === 'https:';
+    const urlObj = new URL(url);
+    const urlIsHttp = urlObj.protocol === 'http:';
+    
+    if (pageIsHttps && urlIsHttp) {
+      // Use a CORS proxy that supports POST
+      const proxyUrl = 'https://corsproxy.io/?' + encodeURIComponent(url);
+      console.log('Using CORS proxy:', proxyUrl);
+      // Clone options to avoid mutating original
+      const proxyOptions = { ...options };
+      // corsproxy.io requires Origin header, but fetch will set it automatically
+      return fetch(proxyUrl, proxyOptions);
+    }
+    
+    // Direct fetch for same-protocol requests
+    return fetch(url, options);
+  }
+
   form.addEventListener('submit', (event) => {
     event.preventDefault();
 
@@ -147,7 +167,8 @@ function initRumorMillForm() {
     }
 
     // Post to the local rumor collector (which relays to Discord).
-    fetch(endpoint + '/api/rumor', {
+    const apiUrl = endpoint + '/api/rumor';
+    fetchWithProxy(apiUrl, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
