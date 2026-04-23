@@ -69,6 +69,12 @@ function initRumorMillForm() {
 
     let urlString = input;
 
+    // Repair a few common "almost a URL" typos.
+    urlString = urlString.replace(/^https\/\//i, 'https://');
+    urlString = urlString.replace(/^http\/\//i, 'http://');
+    urlString = urlString.replace(/^https:(\\)+/i, 'https://');
+    urlString = urlString.replace(/^http:(\\)+/i, 'http://');
+
     // If the scheme is missing, force HTTPS (avoids mixed-content blocks on HTTPS pages).
     if (/^https?:\/\//i.test(urlString)) {
       // keep as-is
@@ -80,6 +86,18 @@ function initRumorMillForm() {
 
     try {
       const url = new URL(urlString);
+
+      // Force HTTPS except for localhost-style development.
+      if (
+        url.protocol === 'http:' &&
+        url.hostname &&
+        url.hostname !== 'localhost' &&
+        url.hostname !== '127.0.0.1' &&
+        url.hostname !== '::1'
+      ) {
+        url.protocol = 'https:';
+      }
+
       const path = url.pathname === '/' ? '' : url.pathname.replace(/\/+$/, '');
       return url.origin + path;
     } catch (_e) {
@@ -92,10 +110,11 @@ function initRumorMillForm() {
   form.addEventListener('submit', (event) => {
     event.preventDefault();
 
+    const rawEndpoint = String(form.dataset.endpoint || '').trim();
     const endpoint =
-      normalizeEndpoint(form.dataset.endpoint) || normalizeEndpoint('bot.riseofhiigara.com');
+      normalizeEndpoint(rawEndpoint) || normalizeEndpoint('bot.riseofhiigara.com');
     if (!endpoint) {
-      setStatus('Missing endpoint configuration.', 'error');
+      setStatus(rawEndpoint ? 'Invalid endpoint URL.' : 'Missing endpoint configuration.', 'error');
       return;
     }
 
