@@ -69,7 +69,7 @@ function initRumorMillForm() {
 
     let processed = input;
 
-    const scheme = 'http:';
+    const scheme = 'https';
     const base =  scheme + '//' + processed;
 
     // If no explicit path, assume collector path.
@@ -83,7 +83,7 @@ function initRumorMillForm() {
     event.preventDefault();
 
     const endpoint =
-      normalizeEndpoint(form.dataset.endpoint) || normalizeEndpoint('http://bot.riseofhiigara.com');
+      normalizeEndpoint(form.dataset.endpoint) || normalizeEndpoint('https://bot.riseofhiigara.com');
     if (!endpoint) {
       setStatus('Missing endpoint configuration.', 'error');
       return;
