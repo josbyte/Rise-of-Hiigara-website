@@ -67,14 +67,24 @@ function initRumorMillForm() {
     const input = String(raw || '').trim();
     if (!input) return '';
 
-    let processed = input;
+    let urlString = input;
 
-    const scheme = 'https';
-    const base =  scheme + '//' + processed;
+    // If the scheme is missing, force HTTPS (avoids mixed-content blocks on HTTPS pages).
+    if (/^https?:\/\//i.test(urlString)) {
+      // keep as-is
+    } else if (urlString.startsWith('//')) {
+      urlString = 'https:' + urlString;
+    } else {
+      urlString = 'https://' + urlString;
+    }
 
-    // If no explicit path, assume collector path.
-    const hasPath = /\/\/[^/]+\/.+/.test(base);
-    return hasPath ? base : base + '';
+    try {
+      const url = new URL(urlString);
+      const path = url.pathname === '/' ? '' : url.pathname.replace(/\/+$/, '');
+      return url.origin + path;
+    } catch (_e) {
+      return '';
+    }
   }
 
 
@@ -83,7 +93,7 @@ function initRumorMillForm() {
     event.preventDefault();
 
     const endpoint =
-      normalizeEndpoint(form.dataset.endpoint) || normalizeEndpoint('https://bot.riseofhiigara.com');
+      normalizeEndpoint(form.dataset.endpoint) || normalizeEndpoint('bot.riseofhiigara.com');
     if (!endpoint) {
       setStatus('Missing endpoint configuration.', 'error');
       return;
@@ -143,7 +153,7 @@ function initRumorMillForm() {
     }
 
     // Post to the local rumor collector (which relays to Discord).
-    const apiUrl = endpoint + '/api/rumor';
+    const apiUrl = new URL('api/rumor', endpoint.endsWith('/') ? endpoint : endpoint + '/').toString();
     fetch(apiUrl, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
