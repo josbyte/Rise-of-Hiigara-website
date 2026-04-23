@@ -69,14 +69,8 @@ function initRumorMillForm() {
 
     let processed = input;
 
-    // Upgrade http:// to https://
-    processed = processed.replace(/^http:\/\//i, 'https://');
-
-    const hasScheme = /^[a-z]+:\/\//i.test(processed);
-
-    // Default to HTTPS if no scheme
-    const scheme = 'https:';
-    const base = hasScheme ? processed : scheme + '//' + processed;
+    const scheme = 'http:';
+    const base =  scheme + '//' + processed;
 
     // If no explicit path, assume collector path.
     const hasPath = /\/\/[^/]+\/.+/.test(base);
