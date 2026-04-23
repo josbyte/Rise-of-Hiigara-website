@@ -89,7 +89,7 @@ function initRumorMillForm() {
     event.preventDefault();
 
     const endpoint =
-      normalizeEndpoint(form.dataset.endpoint) || normalizeEndpoint('https://rescue-charity-fabulous-nato.trycloudflare.com');
+      normalizeEndpoint(form.dataset.endpoint) || normalizeEndpoint('http://bot.riseofhiigara.com');
     if (!endpoint) {
       setStatus('Missing endpoint configuration.', 'error');
       return;
